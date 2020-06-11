@@ -1,0 +1,1 @@
+<h1>template Ciudades y Categorias de negocios por parametros de la url</h1>
