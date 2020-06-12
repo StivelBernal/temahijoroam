@@ -5,7 +5,68 @@ Description: Turismo, community
 Author: Ser Soluciones SAS
 Author URI: https://sersoluciones.com
 Template: roam
-
-CSS changes can be made in files in the /css/ folder. This is a placeholder file required by WordPress, so do not delete it.
-
+Text Domain:  roam-child
 */
+
+.fovea-title-single{
+    background-size: cover !important;
+  
+}
+.fovea-title-single h1{
+    text-shadow: 1px 1px 1px #dddddd ;
+}
+.fovea-nav-holder{
+    background-color: #f4f4f4;
+}
+.fovea-nav-holder{
+    background-color: #f4f4f4;
+}
+
+.fovea-container-inner{
+    padding: 82px 0 110px;
+   
+}
+
+.comercio-tabs{
+    padding:10px;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 500;
+    color: #595959;
+    letter-spacing: -.005em;
+    border: none;
+    padding: 22px;
+    text-align: center;
+    -webkit-transition: color .2s ease-in-out;
+    -moz-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out;
+}
+
+.comercio-tabs.active-item{
+    color: #3b93b6;
+    background-color: #fff;
+    border-color: #fff;
+}
+.comercio-tabs:hover span{
+    color: #3b93b6;
+}
+.comercio-tabs span{
+    line-height: 20px;
+}
+@media (min-width: 800px ){
+    .comercio-tabs{ 
+          border-left:1px solid #d7d7d7;
+    }
+    .comercio-tabs:first-child{
+        border-left:none;
+    }
+}
+
+@media (max-width: 800px ){
+    .comercio-tabs{ 
+          border-top:1px solid #d7d7d7;
+    }
+    .comercio-tabs:first-child{
+        border-top:none;
+    }
+}

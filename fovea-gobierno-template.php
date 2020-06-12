@@ -1,6 +1,5 @@
 <?php
 
-get_header();
 //roam_mikado_get_title();
 get_template_part( 'slider-single-header' );
 // CAPTURAR EL ID Y MOSTRAR UNA VISUAL DEPENDIEDO DEL ID
@@ -20,12 +19,9 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 		
 		<div class="<?php echo esc_attr( $mkdf_holder_params['inner'] ); ?>">
 			
-			
 			<?php roam_mikado_get_blog_single( 'standard' ); ?>
 		</div>
 		
 		<?php do_action( 'roam_mikado_before_container_close' ); ?>
 	</div>
 <?php endwhile; endif;
-
-get_footer(); ?>
