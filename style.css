@@ -23,7 +23,7 @@ Text Domain:  roam-child
 }
 
 .fovea-container-inner{
-    padding: 82px 0 110px;
+    padding: 22px 0 110px;
    
 }
 
@@ -69,4 +69,59 @@ Text Domain:  roam-child
     .comercio-tabs:first-child{
         border-top:none;
     }
+}
+
+
+.fovea-content-servicios .viñeta i{ 
+    color:#4396c2;
+    margin-right: 15px;
+}
+
+.fovea-content-servicios .viñeta .name_service{
+    font-size:16px;
+    margin-bottom:5px;
+    display: inline-block;
+    
+}
+
+.fovea-content-servicios .viñeta .price_service{
+    font-size:16px;
+    font-style: italic;
+    align-self: flex-end;
+
+    
+}
+
+.carrusel-galery-comercio .swiper-container-comercio{
+    height:250px;
+}
+
+.carrusel-galery-comercio .swiper-container-comercio img{
+    opacity: 0;
+    transition: all ease 0.2s;
+   
+}
+.carrusel-galery-comercio .swiper-container-initialized img{
+    width: 100%;
+    height:100%;
+    opacity: 1;
+}
+
+.title-and-socials h1{
+    color:#000;
+    text-align: center;
+    font-size:3.5rem;
+}
+
+.icons-comercio{
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+.icons-comercio a{
+    margin-left:4px;
+}
+
+.icons-comercio a:first-child{
+    margin-left:4px;
 }

@@ -1,6 +1,30 @@
 <?php
-//roam_mikado_get_title();
-get_template_part('slider-single-header');
+
+$metas = new class{} ;
+
+$metas->mapa_negocio = get_post_meta($post->ID , 'mapa_negocio')[0];
+
+$metas->galery_ids = get_post_meta($post->ID , 'galeria_negocio')[0];
+
+$metas->galery = [];
+
+for($i = 0; $i < count($metas->galery_ids); $i++ ) { 
+    $metas->galery[$i] = wp_get_attachment_image_src($metas->galery_ids[$i])[0];
+}
+
+$metas->servicios = get_post_meta($post->ID , 'servicios_negocio')[0];  
+
+
+$metas->telefono = get_post_meta($post->ID , 'telefono_negocio')[0];  
+$metas->whatsapp = get_post_meta($post->ID , 'whatsapp_negocio')[0];  
+$metas->facebook = get_post_meta($post->ID , 'facebook_negocio')[0];  
+$metas->web = get_post_meta($post->ID , 'web_negocio')[0];  
+$metas->correo = get_post_meta($post->ID , 'correo_negocio')[0];  
+$metas->direccion = get_post_meta($post->ID , 'direccion_negocio')[0]; 
+$metas->instagram = get_post_meta($post->ID , 'instagram_negocio')[0];  
+
+
+
 // CAPTURAR EL ID Y MOSTRAR UNA VISUAL DEPENDIEDO DEL ID
 if (have_posts()) : while (have_posts()) : the_post();
         //Get blog single type and load proper helper
@@ -14,8 +38,29 @@ if (have_posts()) : while (have_posts()) : the_post();
 
         /**Get user meta mapa, galeria, comentarios, servicios */
 
-?>
 
+      
+        $itemsCarrusel = '';
+      
+    foreach ($metas->galery as $key => $value) {
+                               
+                $itemsCarrusel .= '
+                <div class="swiper-slide " >
+                    <img src="'.$value.'">
+                </div>';
+        
+            }
+    
+    echo ' 
+                <div class="carrusel-galery-comercio">
+                    <div class="swiper-container-comercio">
+                        <div class="swiper-wrapper">
+                          '.$itemsCarrusel.'  
+                        </div>
+                    </div>
+                </div>';
+
+?>
         <div class="fovea-comercio-single" ng-app="comercio_page" ng-controller="pageController">
 
             <div class="fovea-nav-holder">
@@ -53,8 +98,29 @@ if (have_posts()) : while (have_posts()) : the_post();
 
             </div>
 
+            
+            
+
             <div class="mkdf-container">
                 <div class="fovea-container-inner mkdf-container-inner">
+                    <!--Title redes sociales a la izquierda-->
+                    <div class="title-and-socials">
+                        <h1><?php single_post_title(); ?></h1>
+                         <?php 
+                            $whatsapp = str_replace(['+', ' ', '-', '.'], '', $metas->whatsapp );
+                            echo '<p><strong>'.__('Dirección:').'</strong> '.$metas->direccion.'</p>
+                        <div class="row start-center icons-comercio">
+                           
+                            <a href="'.$metas->facebook.'" target="blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                            <a href="https://wa.me/'.$whatsapp.'" target="blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                            <a href="'.$metas->instagram.'" target="blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            <a href="tel:'.$metas->telefono.'" target="blank"><i class="fa fa-phone-square" aria-hidden="true"></i></a>
+                            <a href="mailto:'.$metas->correo.'" target="blank"><i class="fa fa-envelope-open-o " aria-hidden="true"></i></a>
+                            <a href="'.$metas->web.'" target="blank"><i class="fa fa-opencart" aria-hidden="true"></i></a>
+                           
+                        </div>  '; ?>
+                    </div>
+
                     <div class="clearfix mkdf-grid-medium-gutter">
                         <div class="mkdf-grid-col-9">
                             <article ng-hide="tab !== 1" class="mkdf-tour-item-wrapper">
@@ -64,9 +130,28 @@ if (have_posts()) : while (have_posts()) : the_post();
 
                             </article>
                             <article ng-hide="tab !== 2"class="mkdf-tour-item-wrapper">
-                            
-                                <div class="fovea-content-servicios">
-                                    SERVICIOS
+                             
+                                <div class="fovea-content-servicios row-wrap space-between-center">
+                                <?php
+
+                                    for($i = 0; $i < count($metas->servicios); $i++){
+                                        
+                                        echo '<div class="s-43  ">
+
+                                                <div class="viñeta"><i class="fa fa-circle" aria-hidden="true"></i>
+                                                <h3 class="name_service">'.$metas->servicios[$i]->title .'</h3>
+                                                    <div class="column">
+                                                    
+                                                    <p class="text_service">'.$metas->servicios[$i]->text .'</p>
+                                                        <span class="price_service">'.$metas->servicios[$i]->price .'</span>
+                                                    </div>
+                                                </div>
+                                        
+                                            </div>';                                
+                                
+                                    }  
+                                
+                                ?>
                                 <div>
 
                             </article>
@@ -75,7 +160,9 @@ if (have_posts()) : while (have_posts()) : the_post();
                             
 
                                 <div  class="fovea-content-ubicacion">
-                                    UBICACION
+                                    
+                                    <iframe width="100%" height="500" src="https://maps.google.com/maps?q=<?php echo $metas->mapa_negocio; ?>&t=&z=9&ie=UTF8&iwloc=&output=embed"  frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>           
+  
                                 <div>
 
                             </article>
