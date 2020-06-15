@@ -9,7 +9,7 @@ Text Domain:  roam-child
 */
 
 .fovea-title-single{
-    background-size: cover !important;
+    background-size: 100% 100% !important;
   
 }
 .fovea-title-single h1{
