@@ -39,7 +39,7 @@ if (has_post_thumbnail(  $post->ID )){
 	<?php do_action( 'roam_mikado_after_container_open' ); ?>
 	
 	<div class="<?php echo esc_attr( $mkdf_holder_params['inner'] ); ?>">
-		<?php roam_mikado_get_blog( $mkdf_blog_type ); ?> FDG
+		<?php roam_mikado_get_blog( $mkdf_blog_type ); ?> 
 	</div>
 	
 	<?php do_action( 'roam_mikado_before_container_close' ); ?>

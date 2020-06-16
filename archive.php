@@ -1,6 +1,17 @@
-<h1>template Ciudades y Categorias de negocios por parametros de la url</h1>
-
+<!--AQUI SOLUCIONAR EL CONTENIDO QUE SE MEUSTRE SEA DEL MUNICIPIO-->
 <?php
+
+
+/**Hacer un sistema de rutas como el que hacia en php */
+$rutas = explode('/' ,$_SERVER['REQUEST_URI']);
+
+if(isset($rutas[2])){
+
+	echo 'pagina categoria municipio '.$rutas[2];
+	var_dump(get_term_by('slug', $rutas[2], 'tipos_entradas') );
+}else{
+	echo 'pagina municipio '.$rutas[1];
+}
 $mkdf_blog_type = roam_mikado_get_archive_blog_list_layout();
 roam_mikado_include_blog_helper_functions( 'lists', $mkdf_blog_type );
 $mkdf_holder_params = roam_mikado_get_holder_params_blog();
@@ -13,7 +24,7 @@ roam_mikado_get_title();
 	<?php do_action( 'roam_mikado_after_container_open' ); ?>
 	
 	<div class="<?php echo esc_attr( $mkdf_holder_params['inner'] ); ?>">
-		<?php roam_mikado_get_blog( $mkdf_blog_type ); ?>
+		<?php get_template_part( 'templates-fovea/municipio' );?>
 	</div>
 	
 	<?php do_action( 'roam_mikado_before_container_close' ); ?>
