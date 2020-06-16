@@ -1,6 +1,6 @@
 <div class="mkdf-grid-row">
     <div class="mkdf-grid-col-9">
-        <div class=" row-wrap">
+        <div class="mkdf-tours-search-content row-wrap">
 
 
 <?php
@@ -11,7 +11,7 @@ if( have_posts() ){
         ?>
 
 
-       <div class="entry clearfix s-field hover-cat-1">
+       <div class="entry clearfix s-field">
     <?php
 
             if( has_post_thumbnail() ){
@@ -39,13 +39,12 @@ if( have_posts() ){
                                 </h5>
                                 <div class="mkdf-tours-gallery-simple-title-holder">
                                     <p class="excerpt-category-item">
-                                    <?php the_category(); ?>   </p>
+                                    <?php the_excerpt(); ?>   </p>
                                 </div>
                             </div>
                         </div>
                         <a class="link-item-category-image" href="<?php the_permalink(); ?>"></a>
-                    </div> 
-                   
+                    </div>
                 </div>
             </div>
 

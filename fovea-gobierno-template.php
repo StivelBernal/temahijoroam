@@ -17,7 +17,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 	<div class="<?php echo esc_attr( $mkdf_holder_params['holder'] ); ?>">
 		<?php do_action( 'roam_mikado_after_container_open' ); ?>
 		
-		<div class="<?php echo esc_attr( $mkdf_holder_params['inner'] ); ?>">
+		<div class="gobierno-template <?php echo esc_attr( $mkdf_holder_params['inner'] ); ?>">
 			
 			<?php roam_mikado_get_blog_single( 'standard' ); ?>
 		</div>

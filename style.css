@@ -125,3 +125,89 @@ Text Domain:  roam-child
 .icons-comercio a:first-child{
     margin-left:4px;
 }
+
+.gobierno-template .mkdf-post-image{
+    display:none !important;
+}
+
+
+
+/* ESTILOS DE CATEGORIAS */
+.link-item-category-image{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.fovea-category-1{
+    padding: 15px;
+}
+
+.mkdf-tours-gallery-simple-item-image{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+    height: 350px;
+}
+.hover-cat-1 > .fovea-category-1:hover > div > .mkdf-tours-gallery-simple-item-image:before{
+    opacity: 1;
+}
+
+.hover-cat-1 > .fovea-category-1:hover > div > .mkdf-tours-gallery-simple-item-image img{
+   
+    -webkit-transform: scale(1.04);
+    -moz-transform: scale(1.04);
+    transform: scale(1.04);
+    -webkit-transition: -webkit-transform .5s cubic-bezier(.6,.23,.32,.95);
+    transition: transform .5s cubic-bezier(.6,.23,.32,.95);
+}
+.mkdf-tours-gallery-simple-item-image:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.3);
+    opacity: 0;
+    -webkit-transition: opacity .6s;
+    -moz-transition: opacity .6s;
+    transition: opacity .6s;
+}
+
+.mkdf-tours-gallery-simple-item-image img {
+    position: relative;
+    z-index: -5;
+    vertical-align: middle;
+    -webkit-transition: -webkit-transform .3s;
+    transition: transform .3s;
+    will-change: transform;
+    -webkit-filter: blur();
+    filter: blur();
+    height: 100%;
+    
+}
+
+.fovea-category-1 .reveal-category-item {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 24px 30px;
+    box-sizing: border-box;
+    -webkit-transition: all .3s cubic-bezier(.29,.22,.11,1.33);
+    -moz-transition: all .3s cubic-bezier(.29,.22,.11,1.33);
+    transition: all .3s cubic-bezier(.29,.22,.11,1.33);
+}
+
+.fovea-category-1 .reveal-category-item, .fovea-category-1 .reveal-category-item a {
+    color:white;
+    z-index: 101;
+}
