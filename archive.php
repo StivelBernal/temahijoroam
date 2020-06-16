@@ -28,7 +28,7 @@ $titulo = $municipio->name;
 <div class="mkdf-title-wrapper" style="height: 300px">
 	<div class="mkdf-title-inner">
 		<div class="mkdf-grid">
-			<h1 class="mkdf-page-title entry-title">gfhfg</h1>
+			<h1 class="mkdf-page-title entry-title"><?php echo $titulo.' '.$subtitulo; ?></h1>
 			
 		</div>
 	</div>
