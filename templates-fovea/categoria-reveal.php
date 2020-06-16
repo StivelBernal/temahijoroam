@@ -26,7 +26,7 @@ if( have_posts() ){
 
             ?> 
 
-            <div class="fovea-category-1">
+            <div class="fovea-category-2">
                 <div class="mkdf-tours-gallery-simple-item-image-holder">
                     <div class="mkdf-tours-gallery-simple-item-image">
                         <img src="<?php echo $imagen_destacada; ?>" class="attachment-full size-full wp-post-image" alt="<?php the_title(); ?> </a>">
@@ -39,7 +39,8 @@ if( have_posts() ){
                                 </h5>
                                 <div class="mkdf-tours-gallery-simple-title-holder">
                                     <p class="excerpt-category-item">
-                                    <?php the_category(); ?>   </p>
+                                        <?php the_category(); ?>  
+                                    </p>
                                 </div>
                             </div>
                         </div>

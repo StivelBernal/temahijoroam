@@ -133,6 +133,7 @@ Text Domain:  roam-child
 
 
 /* ESTILOS DE CATEGORIAS */
+
 .link-item-category-image{
     position: absolute;
     display: block;
@@ -210,4 +211,54 @@ Text Domain:  roam-child
 .fovea-category-1 .reveal-category-item, .fovea-category-1 .reveal-category-item a {
     color:white;
     z-index: 101;
+}
+
+
+/*TIPO 2*/
+.fovea-category-2{
+    padding: 15px;
+}
+
+.fovea-category-2 .reveal-category-item {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 24px 30px;
+    box-sizing: border-box;
+    -webkit-transition: all .3s cubic-bezier(.29,.22,.11,1.33);
+    -moz-transition: all .3s cubic-bezier(.29,.22,.11,1.33);
+    transition: all .3s cubic-bezier(.29,.22,.11,1.33);
+}
+
+.fovea-category-2 .reveal-category-item, .fovea-category-1 .reveal-category-item a {
+    color:white;
+    z-index: 101;
+}
+.fovea-category-2.reveal .reveal-category-item{
+    transform: translate3d(0px, 0px, 0px);
+}
+.fovea-category-2 .reveal-category-item{
+    background-color: #fff;
+    transform: translate3d(0px, 89px, 0px);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    height: 180px;
+    padding: 11px 19px;
+    background-color: #fff;
+    box-sizing: border-box;
+    -webkit-transition: all .2s cubic-bezier(.29,.22,.07,.88);
+    -moz-transition: all .2s cubic-bezier(.29,.22,.07,.88);
+    transition: all .2s cubic-bezier(.29,.22,.07,.88);
+}
+
+
+
+
+h1 span{
+    color: #696969;
 }
