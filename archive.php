@@ -15,9 +15,19 @@ $municipio = get_term_by('slug', $rutas[1], 'category' );
 if(isset($rutas[2]) && $tipo_entrada ){
 	
 	$titulo = $municipio->name.': <span>'.$tipo_entrada->name.'</span>';
+
+	$catdesign2 = ['restaurantes']; 
+	
+	if(in_array($rutas[2], $catdesign2)){
+		$catopt = 2;
+	}else{
+		$catopt = 1;
+	}
+
 /** Si no se encuentra el termino regresa a la pagina del munipio o post-type page */
 }else{
 	$titulo =  $municipio->name;
+	$catopt = 1;
 /**Cerramos comparacion si es municipio o si es una categoria interna */
 } 
 
@@ -39,8 +49,16 @@ if(isset($rutas[2]) && $tipo_entrada ){
 	
 	<div class="<?php echo esc_attr( $mkdf_holder_params['inner'] ); ?>">
 		<?php 
-	//	get_template_part( 'templates-fovea/categoria' );
-		get_template_part( 'templates-fovea/categoria-reveal' );
+		if($catopt === 1){
+			get_template_part( 'templates-fovea/categoria' );
+		} else
+
+		if($catopt === 2){
+			get_template_part( 'templates-fovea/categoria-reveal' );
+		}else{
+			get_template_part( 'templates-fovea/categoria' );
+		}
+		
 		
 		?>
 	</div>

@@ -260,5 +260,7 @@ Text Domain:  roam-child
 
 
 h1 span{
-    color: #696969;
+    background: -webkit-linear-gradient(#eee 20%, #0485a5 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
