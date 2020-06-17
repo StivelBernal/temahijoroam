@@ -43,9 +43,12 @@ Text Domain:  roam-child
 }
 
 .comercio-tabs.active-item{
-    color: #3b93b6;
-    background-color: #fff;
+    color: #ffffff;
+    background-color: #3b93b6;
     border-color: #fff;
+}
+.comercio-tabs.active-item:hover span{
+    color: #fff;
 }
 .comercio-tabs:hover span{
     color: #3b93b6;
