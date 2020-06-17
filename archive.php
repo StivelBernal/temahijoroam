@@ -11,15 +11,26 @@ get_header();
 $rutas = explode('/' ,$_SERVER['REQUEST_URI']);
 $tipo_entrada = get_term_by('slug', $rutas[2], 'tipos_entradas' );
 $municipio = get_term_by('slug', $rutas[1], 'category' );
+$catfull = '';
 
 if(isset($rutas[2]) && $tipo_entrada ){
-	
+
 	$titulo = $municipio->name.': <span>'.$tipo_entrada->name.'</span>';
 
 	$catdesign2 = ['restaurantes']; 
+	$catdesign3 = ['sitios', 'emergencias']; 
+	$catdesign4 = ['diversion']; 
 	
 	if(in_array($rutas[2], $catdesign2)){
 		$catopt = 2;
+	}else if(in_array($rutas[2], $catdesign3)){
+		$catfull = 'cat-full';
+		$catopt = 3;
+
+	}else if(in_array($rutas[2], $catdesign4)){
+		
+		$catopt = 4;
+
 	}else{
 		$catopt = 1;
 	}
@@ -44,18 +55,23 @@ if(isset($rutas[2]) && $tipo_entrada ){
 </div>
 
 
-<div class="<?php echo esc_attr( $mkdf_holder_params['holder'] ); ?>">
+<div class=" <?php echo $catfull.' '. esc_attr( $mkdf_holder_params['holder'] ); ?>">
 	<?php do_action( 'roam_mikado_after_container_open' ); ?>
 	
 	<div class="<?php echo esc_attr( $mkdf_holder_params['inner'] ); ?>">
 		<?php 
 		if($catopt === 1){
 			get_template_part( 'templates-fovea/categoria' );
-		} else
-
-		if($catopt === 2){
+			//get_template_part( 'templates-fovea/categoria-diversion' );
+			//get_template_part( 'templates-fovea/categoria-sitios' );
+		}else if($catopt === 2){
 			get_template_part( 'templates-fovea/categoria-reveal' );
-		}else{
+		}else if($catopt === 3){
+			get_template_part( 'templates-fovea/categoria-sitios' );
+		}else if($catopt === 4){
+			get_template_part( 'templates-fovea/categoria-diversion' );
+		}
+		else{
 			get_template_part( 'templates-fovea/categoria' );
 		}
 		
