@@ -249,7 +249,6 @@ Text Domain:  roam-child
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 20;
     height: 180px;
     padding: 11px 19px;
     background-color: #fff;
@@ -308,4 +307,8 @@ h1 span{
 .mkdf-tours-gallery-simple-item-image{
     border-radius:23px;
     border:1px solid grey;
+}
+
+.excerpt-category-item a{
+    z-index: 101;
 }

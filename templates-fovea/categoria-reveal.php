@@ -1,5 +1,8 @@
 <div class="mkdf-grid-row">
     <div class="mkdf-grid-col-9">
+
+        <?php echo do_shortcode( '[serlib_buscador_home_input] '); ?>
+        
         <div class=" row-wrap">
 
 
@@ -39,7 +42,7 @@ if( have_posts() ){
                                 </h5>
                                 <div class="mkdf-tours-gallery-simple-title-holder">
                                     <p class="excerpt-category-item">
-                                        <?php the_category(); ?>  
+                                        <?php the_tags('', ' - ', '<br>' ); ?>  
                                     </p>
                                 </div>
                             </div>

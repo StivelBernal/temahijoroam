@@ -14,23 +14,14 @@ $municipio = get_term_by('slug', $rutas[1], 'category' );
 $catfull = '';
 
 if(isset($rutas[2]) && $tipo_entrada ){
-
-	$titulo = $municipio->name.': <span>'.$tipo_entrada->name.'</span>';
-	/*
-	Hospedaje'    => ['hospedaje'],
-       'Transporte'  => ['transporte' ],
-       'Cultura'    => ['cultura' ],
-       'Sitios'   => ['sitios' ], 
-       'Diverisión'  => ['diversion' ],
-       'Comercio'    => ['comercio' ],
-       'Emergencias'   => ['emergencias' '], 
-       'Eventos'  => ['eventos' ],
-       'Gastronomía'    => ['gastronomia' ],
-       'Ferias y Fiestas'   => ['ferias-y-fiestas']
-	];
-	*/
 	
-	$catdesign2 = ['comercio', 'hospedaje']; 
+	$tipo = $rutas[2];
+	$municipio_s = $rutas[1];
+	
+	$titulo = $municipio->name.': <span>'.$tipo_entrada->name.'</span>';
+
+	
+	$catdesign2 = ['comercio', 'hospedaje', 'gastronomia']; 
 	$catdesign3 = ['sitios', 'emergencias']; 
 	$catdesign4 = ['diversion', 'ferias-y-fiestas']; 
 	
@@ -52,6 +43,8 @@ if(isset($rutas[2]) && $tipo_entrada ){
 }else{
 	$titulo =  $municipio->name;
 	$catopt = 1;
+	$tipo = null;
+	$municipio_s = $rutas[1];
 /**Cerramos comparacion si es municipio o si es una categoria interna */
 } 
 
