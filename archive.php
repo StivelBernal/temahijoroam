@@ -16,10 +16,23 @@ $catfull = '';
 if(isset($rutas[2]) && $tipo_entrada ){
 
 	$titulo = $municipio->name.': <span>'.$tipo_entrada->name.'</span>';
-
-	$catdesign2 = ['restaurantes']; 
+	/*
+	Hospedaje'    => ['hospedaje'],
+       'Transporte'  => ['transporte' ],
+       'Cultura'    => ['cultura' ],
+       'Sitios'   => ['sitios' ], 
+       'Diverisión'  => ['diversion' ],
+       'Comercio'    => ['comercio' ],
+       'Emergencias'   => ['emergencias' '], 
+       'Eventos'  => ['eventos' ],
+       'Gastronomía'    => ['gastronomia' ],
+       'Ferias y Fiestas'   => ['ferias-y-fiestas']
+	];
+	*/
+	
+	$catdesign2 = ['comercio', 'hospedaje']; 
 	$catdesign3 = ['sitios', 'emergencias']; 
-	$catdesign4 = ['diversion']; 
+	$catdesign4 = ['diversion', 'ferias-y-fiestas']; 
 	
 	if(in_array($rutas[2], $catdesign2)){
 		$catopt = 2;
@@ -62,8 +75,6 @@ if(isset($rutas[2]) && $tipo_entrada ){
 		<?php 
 		if($catopt === 1){
 			get_template_part( 'templates-fovea/categoria' );
-			//get_template_part( 'templates-fovea/categoria-diversion' );
-			//get_template_part( 'templates-fovea/categoria-sitios' );
 		}else if($catopt === 2){
 			get_template_part( 'templates-fovea/categoria-reveal' );
 		}else if($catopt === 3){
