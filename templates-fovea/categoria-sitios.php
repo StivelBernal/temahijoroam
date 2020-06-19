@@ -24,7 +24,7 @@ if( have_posts() ){
                 if(stripos($titulo, $busqueda[$i])){
                     $busqueda_item = 1;
                 };
-
+ 
             }
             if(isset($_GET["tags"])){
                 $tags = get_the_terms( $post->ID , 'post_tag' );
