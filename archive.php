@@ -8,7 +8,15 @@ $mkdf_holder_params = roam_mikado_get_holder_params_blog();
 get_header();
 
 /**Hacer un sistema de rutas como el que hacia en php */
-$rutas = explode('/' ,$_SERVER['REQUEST_URI']);
+if(isset($_GET["busqueda"])){
+	$rutas = explode('?' ,$_SERVER['REQUEST_URI']);
+	$rutas = explode('/' ,$rutas[0]);
+}else{
+	$rutas = explode('/' ,$_SERVER['REQUEST_URI']);
+}
+
+
+
 if(isset($rutas[2]) ){
 	$tipo_entrada = get_term_by('slug', $rutas[2], 'tipos_entradas' );
 }
@@ -57,6 +65,17 @@ if(isset( $tipo_entrada ) ){
 		<div class="mkdf-title-inner">
 			<div class="mkdf-grid">
 				<h1 class="mkdf-page-title entry-title"><?php echo $titulo ?></h1>
+				<?php if(isset($_GET["busqueda"])){
+					
+					$results = __('Resultados de busqueda para: ', 'serlib').$_GET["busqueda"];
+					
+					if(isset($_GET["tags"])){
+						
+						$results .=__(' y tags: ', 'serlib').$_GET["tags"];
+					}
+					
+					echo '<p class="results_search_title">'.$results.'</p>';
+				} ?>
 				
 			</div>
 		</div>
@@ -69,20 +88,19 @@ if(isset( $tipo_entrada ) ){
 	
 	<div class="<?php echo esc_attr( $mkdf_holder_params['inner'] ); ?>">
 		<?php 
-		if($catopt === 1){
-			get_template_part( 'templates-fovea/categoria' );
-		}else if($catopt === 2){
-			get_template_part( 'templates-fovea/categoria-reveal' );
-		}else if($catopt === 3){
-			get_template_part( 'templates-fovea/categoria-sitios' );
-		}else if($catopt === 4){
-			get_template_part( 'templates-fovea/categoria-diversion' );
-		}
-		else{
-			get_template_part( 'templates-fovea/categoria' );
-		}
 		
-		
+			if($catopt === 1){
+				get_template_part( 'templates-fovea/categoria' );
+			}else if($catopt === 2){
+				get_template_part( 'templates-fovea/categoria-reveal' );
+			}else if($catopt === 3){
+				get_template_part( 'templates-fovea/categoria-sitios' );
+			}else if($catopt === 4){
+				get_template_part( 'templates-fovea/categoria-diversion' );
+			}
+			else{
+				get_template_part( 'templates-fovea/categoria' );
+			}
 		?>
 	</div>
 	

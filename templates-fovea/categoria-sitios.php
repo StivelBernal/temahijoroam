@@ -9,13 +9,46 @@
 <?php
 
 if( have_posts() ){
+    
     while( have_posts() ){
         the_post();
-        ?>
 
+        $busqueda_item = 0;
+
+        if(isset($_GET["busqueda"])){
+            $busqueda = explode(' ', $_GET["busqueda"]);
+            $titulo = get_the_title($post->ID);
+            
+            for($i = 0; $i < count($busqueda); $i++){
+                
+                if(stripos($titulo, $busqueda[$i])){
+                    $busqueda_item = 1;
+                };
+
+            }
+            if(isset($_GET["tags"])){
+                $tags = get_the_terms( $post->ID , 'post_tag' );
+                if($tags){
+                    
+                    $tags_busqueda = explode(',', $_GET["tags"]);
+                    
+                    for($i = 0; $i < count($tags); $i++ ) { 
+                        if(in_array($tags[0]->slug, $tags_busqueda)){
+                             $busqueda_item = 1;
+                        }
+                    }
+                   
+                }
+            }
+           
+        }
+
+        ?>
+        <?php if( (isset($_GET["busqueda"]) && $busqueda_item === 1) || !isset($_GET["busqueda"]) ){ ?>
 
        <div class="entry clearfix s-field hover-cat-1">
-    <?php
+           
+           <?php
 
             if( has_post_thumbnail() ){
                
@@ -54,6 +87,8 @@ if( have_posts() ){
       
       
         <?php
+
+        }
     }
 }
 
