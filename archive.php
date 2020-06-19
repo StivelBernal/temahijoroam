@@ -9,11 +9,14 @@ get_header();
 
 /**Hacer un sistema de rutas como el que hacia en php */
 $rutas = explode('/' ,$_SERVER['REQUEST_URI']);
-$tipo_entrada = get_term_by('slug', $rutas[2], 'tipos_entradas' );
+if(isset($rutas[2]) ){
+	$tipo_entrada = get_term_by('slug', $rutas[2], 'tipos_entradas' );
+}
+
 $municipio = get_term_by('slug', $rutas[1], 'category' );
 $catfull = '';
 
-if(isset($rutas[2]) && $tipo_entrada ){
+if(isset( $tipo_entrada ) ){
 	
 	$tipo = $rutas[2];
 	$municipio_s = $rutas[1];
