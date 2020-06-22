@@ -140,18 +140,28 @@ if(!isset($slider[0]) || $slider[0] === ''){
 
 				
 		<?php 
-		
-			if($catopt === 1){
-				get_template_part( 'templates-fovea/categoria' );
-			}else if($catopt === 2){
-				get_template_part( 'templates-fovea/categoria-reveal' );
-			}else if($catopt === 3){
-				get_template_part( 'templates-fovea/categoria-sitios' );
-			}else if($catopt === 4){
-				get_template_part( 'templates-fovea/categoria-diversion' );
-			}
-			else{
-				get_template_part( 'templates-fovea/categoria' );
+			
+			if($municipio && !$tipo_entrada && !isset($_GET['busqueda'])){
+
+				get_template_part( 'templates-fovea/categoria-municipio' );
+
+			}else{
+
+			
+				
+				if($catopt === 1){
+					get_template_part( 'templates-fovea/categoria' );
+				}else if($catopt === 2){
+					get_template_part( 'templates-fovea/categoria-reveal' );
+				}else if($catopt === 3){
+					get_template_part( 'templates-fovea/categoria-sitios' );
+				}else if($catopt === 4){
+					get_template_part( 'templates-fovea/categoria-diversion' );
+				}
+				else{
+					get_template_part( 'templates-fovea/categoria' );
+				}
+
 			}
 		?>
 	</div>
