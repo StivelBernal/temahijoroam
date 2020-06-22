@@ -15,16 +15,16 @@ if(isset($_GET["busqueda"])){
 	$rutas = explode('/' ,$_SERVER['REQUEST_URI']);
 }
 
-
-
 if(isset($rutas[2]) ){
 	$tipo_entrada = get_term_by('slug', $rutas[2], 'tipos_entradas' );
+}else{
+	$tipo_entrada = false;
 }
 
 $municipio = get_term_by('slug', $rutas[1], 'category' );
 $catfull = '';
 
-if(isset( $tipo_entrada ) ){
+if( isset($tipo_entrada) && $tipo_entrada !== false ){
 	
 	$tipo = $rutas[2];
 	$municipio_s = $rutas[1];
@@ -59,12 +59,43 @@ if(isset( $tipo_entrada ) ){
 /**Cerramos comparacion si es municipio o si es una categoria interna */
 } 
 
+if(!isset($_GET["busqueda"]) && isset($tipo_entrada)){
+					
+	global $wpdb;
+	
+	if($municipio && !$tipo_entrada){
+
+		$value = $wpdb->get_results( "SELECT * FROM $wpdb->postmeta WHERE meta_value = ".$municipio->term_id." AND meta_key = 'municipio'" );
+		
+	}
+
+	if($tipo_entrada){
+		
+
+		$query = "SELECT * FROM $wpdb->postmeta WHERE meta_value = '".$rutas[1]."/".$rutas[2]."'";
+		
+		$value = $wpdb->get_results( $query );						
+
+	}
+	
+	if( isset($value) && !empty($value) ){
+		$slider = get_post_meta( $value[0]->post_id, 'banner_superior');
+
+		if (!empty($slider)) { 
+			echo do_shortcode($slider[0]);
+		}
+
+	}
+}
+
+if(!isset($slider[0]) || $slider[0] === ''){
 ?>
 <div class="mkdf-title-holder mkdf-standard-type" style="height: 300px" data-height="300">
 	<div class="mkdf-title-wrapper" style="height: 300px">
 		<div class="mkdf-title-inner">
 			<div class="mkdf-grid">
 				<h1 class="mkdf-page-title entry-title"><?php echo $titulo ?></h1>
+				
 				<?php if(isset($_GET["busqueda"])){
 					
 					$results = __('Resultados de busqueda para: ', 'serlib').$_GET["busqueda"];
@@ -82,11 +113,32 @@ if(isset( $tipo_entrada ) ){
 	</div>
 </div>
 
-
+<?php }  ?>
 <div class=" <?php echo $catfull.' '. esc_attr( $mkdf_holder_params['holder'] ); ?>">
 	<?php do_action( 'roam_mikado_after_container_open' ); ?>
 	
 	<div class="<?php echo esc_attr( $mkdf_holder_params['inner'] ); ?>">
+
+			<?php  
+
+				
+
+				if(!isset($_GET["busqueda"]) && isset($tipo_entrada)){
+						
+					if( isset($value) && !empty($value) ){
+						
+						$relacionado_post = get_post($value[0]->post_id);
+						$content = $relacionado_post->post_content;
+						$content = apply_filters('the_content', $content);
+						$content = str_replace(']]>', ']]&gt;', $content);
+						echo $content;
+					}
+					
+				}
+
+			?>
+
+				
 		<?php 
 		
 			if($catopt === 1){
@@ -106,7 +158,18 @@ if(isset( $tipo_entrada ) ){
 	
 	<?php do_action( 'roam_mikado_before_container_close' ); ?>
 </div>
-
+<div class="publicidad">
+			<?php 
+				if( isset($value) && !empty($value) ){
+					
+					$slider = get_post_meta( $value[0]->post_id, 'banner_inferior');
+					if (!empty($slider)) { 
+						echo do_shortcode($slider[0]);
+					}
+						
+				}
+			?>
+</div>
 <?php 
 do_action( 'roam_mikado_blog_list_additional_tags' ); 
 
