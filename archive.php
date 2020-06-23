@@ -84,7 +84,7 @@ if(!isset($_GET["busqueda"]) && isset($tipo_entrada)){
 		if (!empty($slider)) { 
 			echo do_shortcode($slider[0]);
 		}
-
+  
 	}
 }
 
