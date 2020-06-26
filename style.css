@@ -262,9 +262,8 @@ Text Domain:  roam-child
 
 
 h1 span{
-    background: -webkit-linear-gradient(#eee 20%, #0485a5 70%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    
+    color:#0485a5;
 }
 .title-and-socials a > i{
     color:#0485a5 ;
@@ -312,3 +311,27 @@ h1 span{
 .excerpt-category-item a{
     z-index: 101;
 }
+
+/*COMENTARIOS*/
+
+.extrellas {
+    padding: 11px 0;
+}
+.estrellas i{
+    color: #d1b004;
+    font-size: 20px;
+    z-index: 20;
+}
+
+.items_calificacion_row{
+    margin-bottom:30px;
+}
+
+.item_calificacion{
+    text-align: center;
+}
+
+
+
+
+
