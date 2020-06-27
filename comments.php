@@ -88,12 +88,34 @@ if (comments_open() || get_comments_number()) { ?>
 					?>
 					</div>
 					
-					<textarea id="comment" placeholder="<?php echo __('Escribe tu reseña', 'roam'); ?>" name="comment" cols="45" rows="6" aria-required="true"></textarea>
+					<textarea id="comment" placeholder="<?php echo __('Escribe tu reseña', 'roam'); ?>" name="comment" cols="45" rows="4" maxlength="300" ng-model="comment_text"  aria-required="true"></textarea>
 					
+					<div class="row-wrap">
+
+						<div class="s-25" ng-repeat="image in galery"> 
+							<div class="galery-image-container">
+								<div><img class="img-galeria"  ng-src="{{preview_galery[$index] ? preview_galery[$index]: preview_default}}"></div> 
+								<span title="eliminar" ng-click="delete_image($index)" class="dashicons btnn-delete " role="button" tabindex="0"> <i class="fa fa-trash-o"></i></span>
+             
+								</div>
+
+								<div class="form-group s-100">
+									<label for="featured{{$index}}" class="input-file-label">{{ !galery[$index].name ? "<?php echo __('Seleccionar imagen','serlib'); ?>": galery[$index].name }} </label>      
+									<input class="input_file" type="file" ng-model="galery[$index]" indice="{{$index}}" preview-array="preview_galery" app-filereader accept="image/png, image/jpeg" app-filereader style="display:none;"  id="featured{{$index}}">
+								</div>
+							</div> 
+						</div>
+
+					</div>
 					
+					<div class="s-100 row end-center">       
+                	
+						<button class="btnn-add-galery" ng-click="add_galery()" ><?php echo __('Agregar imagen', 'serlib' )?></button> 
+					
+					</div>
 
 					<div>
-						<button ng-click="submit()" ng-disabled="loginForm.$invalid" class="bttn default s-100">
+						<button ng-click="submit()" ng-disabled="(!galery[0].name && comment_text === '' && item_selected.length === 0)" class="bttn default s-100">
 							<?php echo __('Publicar reseña', 'roam'); ?></button>
 					</div>
 				</form>

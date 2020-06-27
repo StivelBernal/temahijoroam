@@ -331,7 +331,25 @@ h1 span{
     text-align: center;
 }
 
+#commentform .btnn-delete{
+    position: relative !important;
+    bottom: 60px !important;
+    opacity: 0;
+    transition: all ease 0.4s;
+}
 
+#commentform .galery-image-container:hover .btnn-delete{
+    opacity: 1;
+}
+
+.btnn-add-galery{
+    background:#3b85a5;
+    padding:10px 20px ;
+    color:white;
+    text-transform: uppercase;
+    border-radius:23px;
+    border-color:transparent;
+}
 
 
 
