@@ -341,7 +341,10 @@ h1 span{
 #commentform .galery-image-container:hover .btnn-delete{
     opacity: 1;
 }
-
+.comment_delete{
+    color:red;
+    cursor:pointer;
+}
 .btnn-add-galery{
     background:#3b85a5;
     padding:10px 20px ;
@@ -352,4 +355,13 @@ h1 span{
 }
 
 
-
+#comments .photo.avatar{
+    width: 76px !important;
+    height: 76px !important;
+}
+.galery-c-i {
+    width:auto;
+    height: 70px;
+    cursor:pointer;
+    margin-right:5px;
+}
