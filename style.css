@@ -365,3 +365,61 @@ h1 span{
     cursor:pointer;
     margin-right:5px;
 }
+
+
+#img-comment-preview{
+    height:100vh;
+    width: 100% !important;
+    position: fixed;
+    z-index:1000;
+    padding:0;
+    top:0;
+    left: 0;
+    display: none;
+    background-color: #ffffffcc;
+}
+
+#img-comment-preview img{
+    height:90%;
+    width: auto;
+    margin: 50px auto;
+    display:block;
+}
+
+#img-comment-preview div.cerrar{
+   position: absolute;
+   right:0;
+   font-weight: 700;
+   color:black;
+   padding:10px 30px;
+   background-color: #abce55;
+   border-radius:23px;
+   right: 5%;
+   top: 10%;
+   cursor:pointer;
+}
+
+.fovea-title-single{
+    z-index: 10 !important;
+}
+
+header{
+    z-index:20 !important;
+}
+
+.reply-cancel{
+    background-color: gray;
+    color: white;
+    float: right;
+    padding:3px 8px;
+    border-radius: 18px;
+    cursor: pointer;
+    width: fit-content;
+    margin-bottom: 7px;
+}
+
+.comment_child{
+    padding-left: 10%;
+    margin-top:20px;
+    border-top: 1px solid #f2f2f2;
+}

@@ -19,50 +19,65 @@ if (comments_open() || get_comments_number()) { ?>
 
 							foreach ($comments as $comment) {
 
+								if ($comment->comment_parent === "0") {
+
+									$child_comm =  get_comments([
+										'status'    => 'approve',
+										'order'     => 'DESC',
+										'parent'    => $comment->comment_ID
+									]);
+
+
+
 							?>
 
 
-								<li class="comment byuser comment-author-brayan bypostauthor even thread-even depth-1">
-									<div class="mkdf-comment clearfix mkdf-post-author-comment">
-										<div class="mkdf-comment-image"> 
-										<img alt="<?php 
 
-											$user = wp_get_current_user();
+									<li class="comment byuser comment-author-brayan bypostauthor even thread-even depth-1">
+										<div class="mkdf-comment clearfix mkdf-post-author-comment">
+											<div class="mkdf-comment-image">
+												<img alt="<?php
 
-											$user_photo = get_user_meta($user->ID, 'user_photo', true );
+															$user = wp_get_current_user();
+															
+															$user_photo = get_user_meta( get_user_by('email', $comment->comment_author_email )->ID, 'user_photo', true);
 
-											$user_photo                = str_replace( 
-											['/home/brayan/Escritorio/FOVEA', '/home/u135059516/domains/golfodemorrosquillo.com/public_html',
-											'/home/u135059516/domains/golfodemorrosquillo.co/public_html', '/home/u135059516/domains/golfodemorrosquillo.com.co/public_html'], 
-											'',
-											$user_photo 
-											);
+															$user_photo                = str_replace(
+																[
+																	'/home/brayan/Escritorio/FOVEA', '/home/u135059516/domains/golfodemorrosquillo.com/public_html',
+																	'/home/u135059516/domains/golfodemorrosquillo.co/public_html', '/home/u135059516/domains/golfodemorrosquillo.com.co/public_html'
+																],
+																'',
+																$user_photo
+															);
 
-											if(!$user_photo){
-											$user_photo = '/wp-content/plugins/ser_lib/assets/img/avatar-default.jpg';
-											}
-										
-										echo comment_author(); ?>" class="avatar photo" src="<?php echo $user_photo; ?>" >
-										
-										</div>
-										<div class="mkdf-comment-text">
-											<div class="mkdf-comment-info">
-												<h4 class="mkdf-comment-name vcard">
-												<a href="<?php echo comment_author_url(); ?>" target="_blank"><?php comment_author(); ?></a> </h4>
-												<div class="mkdf-comment-date"><?php $de = __('\d\e', 'roam_child'); _e('el', 'roam_child');  comment_date(' j '.$de.' F, Y / g:i a')?></div>
+															if (!$user_photo) {
+																$user_photo = '/wp-content/plugins/ser_lib/assets/img/avatar-default.jpg';
+															}
+
+															echo comment_author(); ?>" class="avatar photo" src="<?php echo $user_photo; ?>">
+
 											</div>
-											<div class="stars_r_c row-wrap">
-											
-												<?php 
-												
+											<div class="mkdf-comment-text">
+												<div class="mkdf-comment-info">
+													<h4 class="mkdf-comment-name vcard">
+														<a target="_blank"><?php comment_author(); ?></a> </h4>
+													<div class="mkdf-comment-date"><?php $de = __('\d\e', 'roam_child');
+																					_e('el', 'roam_child');
+																					comment_date(' j ' . $de . ' F, Y / g:i a') ?></div>
+												</div>
+												<div class="stars_r_c row-wrap">
+
+													<?php
+
 													$stars_items_r =  get_comment_meta(get_comment_ID(), 'stars_items');
-													
-													if(!empty($stars_items_r)){
+
+													if (!empty($stars_items_r)) {
 														$stars_items_r = $stars_items_r[0];
-														for($i = 0; $i < count($stars_items_r); $i++ ){
+														for ($i = 0; $i < count($stars_items_r); $i++) {
 															echo '
 															<div class="item_calificacion s-20">
-																<div class="t">'.$stars_items_r[$i]->label.'</div>
+																<div class="t">' . $stars_items_r[$i]->label . '</div>
 																	<div class="estrellas">';
 															switch ($stars_items_r[$i]->value) {
 																case 1:
@@ -114,49 +129,121 @@ if (comments_open() || get_comments_number()) { ?>
 
 															echo '</div>
 															</div>';
-
 														}
-
 													}
-												
-												?>
-											
-											</div>
 
-											<div class="mkdf-text-holder" id="comment-6">
+													?>
 
-												<p><?php  comment_text(); ?></p>
-											</div>
+												</div>
 
-											<div class="stars_r_c">
-												<?php 
-												
+												<div class="mkdf-text-holder" id="comment-6">
+
+													<p><?php comment_text(); ?></p>
+												</div>
+
+												<div class="stars_r_c">
+													<?php
+
 													$galeria =  get_comment_meta(get_comment_ID(), 'comments_media');
-													
-													if( !empty( $galeria[0] ) ){
-														for( $i = 0; $i < count($galeria[0]); $i++ ){
-															echo '<img class="galery-c-i" src="'.$galeria[0][$i].'" >';
+
+													if (!empty($galeria[0])) {
+														for ($i = 0; $i < count($galeria[0]); $i++) {
+															echo '<img class="galery-c-i" src="' . $galeria[0][$i] . '" >';
 														}
 													}
-												
-												?>
-											</div>
-											<?php  if( is_user_logged_in() ){ ?>
- 
-											<a rel="nofollow" class="comment-reply-link" href="http://localhost:4000/lorica/emergencias/emergencias-241/?replytocom=6#respond"
-											 data-commentid="<?php echo get_comment_ID(); ?>" 
-											 aria-label="<?php echo __('Responder a ', 'roam_child').comment_author(); ?>" ><?php echo __('Responder', 'roam_child'); ?> </a>
-											 <?php  if($comment -> user_id == $user->ID ) { echo '<a ng-click="delete_comment('.get_comment_ID().', $event) " class="comment_delete" > '. __('Eliminar', 'roam_child').'</a>'; } ?>
 
-											<?php } ?>
+													?>
+												</div>
+												<?php if (is_user_logged_in()) { ?>
+
+													<a rel="nofollow" class="comment-reply-link" ng-click="reply(<?php echo get_comment_ID(); ?>,$event)" aria-label="<?php echo __('Responder a ', 'roam_child') . comment_author(); ?>"><?php echo __('Responder', 'roam_child'); ?> </a>
+													<?php if ($comment->user_id == $user->ID) {
+														echo '<a ng-click="delete_comment(' . get_comment_ID() . ', $event) " class="comment_delete" > ' . __('Eliminar', 'roam_child') . '</a>';
+													} ?>
+
+												<?php } ?>
+											</div>
 										</div>
-									</div>
-								</li>
+
+										<?php
+
+										if (!empty($child_comm)) {
+
+											for ($i = 0; $i < count($child_comm); $i++) {
+												
+												
+												$user_photo_child = get_user_meta( get_user_by('email', $child_comm[$i]->comment_author_email)->ID , 'user_photo', true );
+
+												$user_photo_child                = str_replace(
+													[
+														'/home/brayan/Escritorio/FOVEA', '/home/u135059516/domains/golfodemorrosquillo.com/public_html',
+														'/home/u135059516/domains/golfodemorrosquillo.co/public_html', '/home/u135059516/domains/golfodemorrosquillo.com.co/public_html'
+													],
+													'',
+													$user_photo_child
+												);
+
+												if (!$user_photo_child) {
+													$user_photo_child = '/wp-content/plugins/ser_lib/assets/img/avatar-default.jpg';
+												}
+										?>
+
+											<div class="mkdf-comment comment_child clearfix mkdf-post-author-comment">
+												<div class="mkdf-comment-image">
+													<img alt="<?php echo $child_comm[$i]->comment_author ?>" class="avatar photo" src="<?php echo $user_photo_child; ?>">
+												</div>
+												<div class="mkdf-comment-text">
+													<div class="mkdf-comment-info">
+														<h5 class="mkdf-comment-name vcard">
+															<a target="_blank"><?php echo $child_comm[$i]->comment_author ?></a> </h5>
+														<div class="mkdf-comment-date"><?php $de = __('\d\e', 'roam_child');
+																					_e('el', 'roam_child');
+																					echo date( ' j ' . $de . ' F, Y / g:i a', strtotime($child_comm[$i]->comment_date )); ?></div>
+													</div>
+													
+
+													<div class="mkdf-text-holder" id="comment-6">
+
+														<p><?php echo $child_comm[$i]->comment_content ?></p>
+														
+													</div>
+
+													<div class="stars_r_c">
+														<?php 
+
+														$galeria_child =  get_comment_meta($child_comm[$i]->comment_ID, 'comments_media');
+
+														if (!empty($galeria_child[0])) {
+															for ($j = 0; $j < count($galeria_child[0]); $j++) {
+																echo '<img class="galery-c-i" src="' . $galeria_child[0][$j] . '" >';
+															}
+														}
+													
+														if ( $child_comm[$i]->user_id == get_current_user_id() ) { ?>
+														<a ng-click="delete_comment(<?php echo $child_comm[$i]->comment_ID ?>, $event, true) " class="comment_delete"> Eliminar</a>
+														
+														<?php
+														} 
+														?>
+												
+												</div>
+											</div>
+
+
+										<?php
+
+											}
+										}
+
+										?>
+									</li>
 
 
 
 							<?php
-								/**queda pendiente hacer los comment reply  */
+
+								}
+								/**Finaliza condicion de reply y despues el foreach  */
 							}
 
 							the_comments_pagination();
@@ -186,7 +273,7 @@ if (comments_open() || get_comments_number()) { ?>
 				<div id="respond" class="comment-respond">
 					<h4 id="reply-title" class="comment-reply-title"><?php __('Deja una reseña:', 'roam'); ?></h4>
 					<form name="commentform" id="commentform" class="comment-form">
-						<div class="row-wrap items_calificacion_row">
+						<div class="row-wrap items_calificacion_row" ng-if="!reply_id">
 
 							<?php
 
@@ -204,10 +291,14 @@ if (comments_open() || get_comments_number()) { ?>
 								$query = "SELECT * FROM $wpdb->postmeta WHERE meta_value = '" . $rutas[1] . "/" . $rutas[2] . "'";
 
 								$value = $wpdb->get_row($query);
+								if ($value) {
+									$items_calificacion = get_post_meta($value->post_id, 'items_de_calificacion');
 
-								$items_calificacion = get_post_meta($value->post_id, 'items_de_calificacion');
+									$items_calificacion = explode(',', $items_calificacion[0]);
+								} else {
+									$items_calificacion = [];
+								}
 
-								$items_calificacion = explode(',', $items_calificacion[0]);
 
 								echo '<script> var post_id = ' . get_the_ID() . '</script>';
 
@@ -232,6 +323,11 @@ if (comments_open() || get_comments_number()) { ?>
 
 
 							?>
+						</div>
+
+						<div ng-if="reply_id" class="reply-info">
+							<h4><?php echo __('Responder a comentario', 'roam_child'); ?> </h4>
+							<div ng-click="cancel_reply()" class="reply-cancel"> Cancelar </div>
 						</div>
 
 						<textarea id="comment" placeholder="<?php echo __('Escribe tu reseña', 'roam'); ?>" name="comment" cols="45" rows="4" maxlength="300" ng-model="comment_text" aria-required="true"></textarea>
@@ -280,6 +376,11 @@ if (comments_open() || get_comments_number()) { ?>
 			</div><!-- #respond -->
 		</div>
 	</div>
+	</div>
+
+	<div id="img-comment-preview">
+		<div class="cerrar"><?php echo __('cerrar', 'serlib'); ?></div>
+		<img src="http://localhost:4000/wp-content/uploads/2020/06/40992_profesionales-de-la-salud-estan-dispuestos-a-escuchar_1024x600-150x150.jpeg">
 	</div>
 
 
