@@ -4,17 +4,21 @@ roam_mikado_include_blog_helper_functions( 'lists', $mkdf_blog_type );
 $mkdf_holder_params = roam_mikado_get_holder_params_blog();
 
 get_header();
+
+$opts = get_option( 'serlib' );
+
 //roam_mikado_get_title();
 //$opts = get_option( 'serlib' );
-if (has_post_thumbnail(  $post->ID )){
-	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+if ($opts['url_image_blog'] == ''){
+	$image = $opts['url_image_blog'];
 }else{
-   $image = 'https://roam.qodeinteractive.com/wp-content/uploads/2017/08/destitnation-title-img-6.jpg';
+   $image = '/wp-content/plugins/ser_lib/assets/img/blog-default.jpg';
 }
+
 ?>
 
 <div class="fovea-title-single mkdf-title-holder mkdf-standard-type mkdf-has-bg-image mkdf-bg-parallax" 
-	style="height: 550px; background-image: url(<?php echo $image[0]; ?>); background-position: center -40.81px;" data-height="550">
+	style="height: 550px; background-image: url(<?php echo $image; ?>); background-position: center -40.81px;" data-height="550">
 	<div class="mkdf-title-image">
 		<?php
 

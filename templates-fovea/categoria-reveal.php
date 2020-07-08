@@ -57,7 +57,7 @@ if( have_posts() ){
 
             }else{
 
-                $imagen_destacada = 'https://roam.qodeinteractive.com/wp-content/uploads/2017/08/destitnation-title-img-6.jpg';
+                $imagen_destacada = '/wp-content/plugins/ser_lib/assets/img/images.png';
 
             }
 

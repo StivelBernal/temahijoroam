@@ -31,7 +31,7 @@ if( isset($tipo_entrada) && $tipo_entrada !== false ){
 	
 	$titulo = $municipio->name.': <span>'.$tipo_entrada->name.'</span>';
 
-	
+	/*Se setea el diseño para una deterinada categoria*/
 	$catdesign2 = ['comercio', 'hospedaje', 'gastronomia']; 
 	$catdesign3 = ['sitios', 'emergencias']; 
 	$catdesign4 = ['diversion', 'ferias-y-fiestas']; 
@@ -131,7 +131,19 @@ if(!isset($slider[0]) || $slider[0] === ''){
 						$content = $relacionado_post->post_content;
 						$content = apply_filters('the_content', $content);
 						$content = str_replace(']]>', ']]&gt;', $content);
-						echo $content;
+						
+						if(!$rutas[2]){
+							
+							
+							$id_municipio = get_post_meta( $value[0]->post_id, 'alcaldiau')[0];
+							$id_gobernacion = get_post_meta( $value[0]->post_id, 'gobernacion')[0];
+
+							echo '<script>  var municipio = "'.$rutas[1].'"; id_gobernacion = '.$id_gobernacion.'; var id_municipio = '.$id_municipio.';</script>';
+						}else{
+							echo '<script>  var municipio = false; id_gobernacion = false; var id_municipio = false;</script>';
+					
+						}
+
 					}
 					
 				}
