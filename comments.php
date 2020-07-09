@@ -1,23 +1,30 @@
 <?php
-if (post_password_required()) {
-	return;
-}
-
+$results_stars = [];
 if (comments_open() || get_comments_number()) { ?>
 	<div ng-app="comments" ng-controller="commentsController">
 		<div class="mkdf-comment-holder clearfix" id="comments">
 
-			<?php if (have_comments()) { ?>
+			<?php if (have_comments()) { 
+				
+				
+				
+				?>
+
 				<div class="mkdf-comment-holder-inner">
 					<div class="mkdf-comments-title">
-						<h4><?php comments_number();  ?></h4>
+						<h4>
+						  <span ng-if="cal_total !== 0"> <?php echo __('Calificación Promedio', 'roam_child');  ?> {{cal_total}}</span><br>
+						<span style="font-size:1.2rem; opacity:0.7;"><?php comments_number();  ?></span></h4>
 					</div>
 					<div class="mkdf-comments">
 						<ul class="mkdf-comment-list">
 
 							<?php
-
+							$c = 0;
 							foreach ($comments as $comment) {
+								
+								$results_stars[$c] =  get_comment_meta(get_comment_ID(), 'stars_items');
+								$c++;
 
 								if ($comment->comment_parent === "0") {
 
@@ -264,6 +271,9 @@ if (comments_open() || get_comments_number()) { ?>
 
 		<?php
 
+		if (is_user_logged_in()) {
+			
+		
 		$user = wp_get_current_user();
 		// obtener las forma de calificar y si no una default que solo sea por extrellas
 		?>
@@ -283,6 +293,7 @@ if (comments_open() || get_comments_number()) { ?>
 							if (isset($rutas[2])) {
 								$tipo_entrada = get_term_by('slug', $rutas[2], 'tipos_entradas');
 							}
+
 
 
 							if ($tipo_entrada) {
@@ -380,8 +391,16 @@ if (comments_open() || get_comments_number()) { ?>
 
 				</div>
 
+				<div class="s-100">
+					<md-checkbox aria-label="politica_privacidad_I18N" class="md-primary" ng-model="policy">
+						<p><?php echo __('Declaró que este comentario está basado en mi experiencia vivida en el Golfo de Morrosquillo, no tengo ninguna relación con este comercio y no recibí ningún incentivo económico por escribirlo.', 'roam_child') ?></a>
+					</md-checkbox>
+
+				</div>
+
+
 				<div class="s-30">
-					<button ng-click="submit()" ng-disabled="(!galery[0].name && comment_text === '' && item_selected.length === 0)" class="bttn default s-100">
+					<button ng-click="submit()" ng-disabled="(!galery[0].name && comment_text === '' && item_selected.length === 0  || policy !== true)" class="bttn default s-100">
 						<div ng-if="is_submit" class="lds-ripple-small">
 							<div></div>
 							<div></div>
@@ -408,4 +427,18 @@ if (comments_open() || get_comments_number()) { ?>
 	</div>
 
 
-<?php  } ?>
+<?php } } 
+
+
+$nuevo_array = [];
+for($i = 0; $i < count($results_stars); $i++){
+
+	foreach ($results_stars[$i] as $key => $value) {
+		foreach ($value as $key => $calificacion_item) {
+			array_push($nuevo_array ,$calificacion_item->value); 
+		}
+	}
+}
+$n_stars = count($nuevo_array);
+echo '<script> var cal_total =  '.array_sum($nuevo_array)/$n_stars.'</script>' ;
+?>

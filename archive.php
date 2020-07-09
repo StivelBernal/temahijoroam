@@ -52,7 +52,12 @@ if( isset($tipo_entrada) && $tipo_entrada !== false ){
 
 /** Si no se encuentra el termino regresa a la pagina del munipio o post-type page */
 }else{
-	$titulo =  $municipio->name;
+	if(isset($municipio->name)){
+		$titulo =  $municipio->name;
+	}else{
+		$titulo =  $rutas[1].': '.$rutas[2];
+	}
+	
 	$catopt = 1;
 	$tipo = null;
 	$municipio_s = $rutas[1];
@@ -132,8 +137,7 @@ if(!isset($slider[0]) || $slider[0] === ''){
 						$content = apply_filters('the_content', $content);
 						$content = str_replace(']]>', ']]&gt;', $content);
 						
-						if(!$rutas[2]){
-							
+						if(!isset($rutas[2])){
 							
 							$id_municipio = get_post_meta( $value[0]->post_id, 'alcaldiau')[0];
 							$id_gobernacion = get_post_meta( $value[0]->post_id, 'gobernacion')[0];
