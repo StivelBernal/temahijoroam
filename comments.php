@@ -440,5 +440,10 @@ for($i = 0; $i < count($results_stars); $i++){
 	}
 }
 $n_stars = count($nuevo_array);
-echo '<script> var cal_total =  '.array_sum($nuevo_array)/$n_stars.'</script>' ;
+if($n_stars > 0){
+	echo '<script> var cal_total =  '.array_sum($nuevo_array)/$n_stars.'</script>' ;
+}else{
+	echo '<script> var cal_total =  0; </script>' ;
+}
+
 ?>
