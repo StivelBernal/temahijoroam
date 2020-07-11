@@ -71,6 +71,13 @@ if(!isset($_GET["busqueda"]) && isset($tipo_entrada)){
 	if($municipio && !$tipo_entrada){
 
 		$value = $wpdb->get_results( "SELECT * FROM $wpdb->postmeta WHERE meta_value = ".$municipio->term_id." AND meta_key = 'municipio'" );
+
+		if(!isset($_GET["busqueda"])){				
+			$id_municipio = get_post_meta( $value[0]->post_id, 'alcaldiau')[0];
+			$id_gobernacion = get_post_meta( $value[0]->post_id, 'gobernacion')[0];
+
+			echo '<script>  var municipio = "'.$rutas[1].'"; id_gobernacion = '.$id_gobernacion.'; var id_municipio = '.$id_municipio.';</script>';
+		}
 		
 	}
 
@@ -89,6 +96,8 @@ if(!isset($_GET["busqueda"]) && isset($tipo_entrada)){
 		if (!empty($slider)) { 
 			echo do_shortcode($slider[0]);
 		}
+		
+	
   
 	}
 }
@@ -126,7 +135,7 @@ if(!isset($slider[0]) || $slider[0] === ''){
 
 			<?php  
 
-				
+					
 
 				if(!isset($_GET["busqueda"]) && isset($tipo_entrada)){
 						
@@ -137,16 +146,7 @@ if(!isset($slider[0]) || $slider[0] === ''){
 						$content = apply_filters('the_content', $content);
 						$content = str_replace(']]>', ']]&gt;', $content);
 						
-						if(!isset($rutas[2])){
-							
-							$id_municipio = get_post_meta( $value[0]->post_id, 'alcaldiau')[0];
-							$id_gobernacion = get_post_meta( $value[0]->post_id, 'gobernacion')[0];
-
-							echo '<script>  var municipio = "'.$rutas[1].'"; id_gobernacion = '.$id_gobernacion.'; var id_municipio = '.$id_municipio.';</script>';
-						}else{
-							echo '<script>  var municipio = false; id_gobernacion = false; var id_municipio = false;</script>';
 					
-						}
 
 					}
 					
