@@ -89,47 +89,47 @@ if (comments_open() || get_comments_number()) { ?>
 															switch ($stars_items_r[$i]->value) {
 																case 1:
 																	echo '
-																	<i class="fa text-success fa-star" aria-hidden="true" ></i>
-																	<i class="fa text-success fa-star-o" aria-hidden="true" ></i>
-																	<i class="fa text-success fa-star-o" aria-hidden="true" ></i>
-																	<i class="fa fa-star-o text-success" aria-hidden="true" ></i>
-																	<i class="fa fa-star-o text-success" aria-hidden="true" ></i>																	
+																	<i class="fa text-success fa-circle" aria-hidden="true" ></i>
+																	<i class="fa text-success fa-circle-o" aria-hidden="true" ></i>
+																	<i class="fa text-success fa-circle-o" aria-hidden="true" ></i>
+																	<i class="fa fa-circle-o text-success" aria-hidden="true" ></i>
+																	<i class="fa fa-circle-o text-success" aria-hidden="true" ></i>																	
 																	';
 																	break;
 																case 2:
 																	echo '
-																	<i class="fa text-success fa-star" aria-hidden="true" ></i>
-																	<i class="fa text-success fa-star" aria-hidden="true" ></i>
-																	<i class="fa text-success fa-star-o" aria-hidden="true" ></i>
-																	<i class="fa fa-star-o text-success" aria-hidden="true" ></i>
-																	<i class="fa fa-star-o text-success" aria-hidden="true" ></i>																	
+																	<i class="fa text-success fa-circle" aria-hidden="true" ></i>
+																	<i class="fa text-success fa-circle" aria-hidden="true" ></i>
+																	<i class="fa text-success fa-circle-o" aria-hidden="true" ></i>
+																	<i class="fa fa-circle-o text-success" aria-hidden="true" ></i>
+																	<i class="fa fa-circle-o text-success" aria-hidden="true" ></i>																	
 																	';
 																	break;
 																case 3:
 																	echo '
-																	<i class="fa text-success fa-star" aria-hidden="true" ></i>
-																	<i class="fa text-success fa-star" aria-hidden="true" ></i>
-																	<i class="fa text-success fa-star" aria-hidden="true" ></i>
-																	<i class="fa fa-star-o text-success" aria-hidden="true" ></i>
-																	<i class="fa fa-star-o text-success" aria-hidden="true" ></i>																	
+																	<i class="fa text-success fa-circle" aria-hidden="true" ></i>
+																	<i class="fa text-success fa-circle" aria-hidden="true" ></i>
+																	<i class="fa text-success fa-circle" aria-hidden="true" ></i>
+																	<i class="fa fa-circle-o text-success" aria-hidden="true" ></i>
+																	<i class="fa fa-circle-o text-success" aria-hidden="true" ></i>																	
 																	';
 																	break;
 																case 4:
 																	echo '
-																	<i class="fa text-success fa-star" aria-hidden="true" ></i>
-																	<i class="fa text-success fa-star" aria-hidden="true" ></i>
-																	<i class="fa text-success fa-star" aria-hidden="true" ></i>
-																	<i class="fa fa-star" text-success" aria-hidden="true" ></i>
-																	<i class="fa fa-star-o text-success" aria-hidden="true" ></i>																	
+																	<i class="fa text-success fa-circle" aria-hidden="true" ></i>
+																	<i class="fa text-success fa-circle" aria-hidden="true" ></i>
+																	<i class="fa text-success fa-circle" aria-hidden="true" ></i>
+																	<i class="fa fa-circle" text-success" aria-hidden="true" ></i>
+																	<i class="fa fa-circle-o text-success" aria-hidden="true" ></i>																	
 																	';
 																	break;
 																case 5:
 																	echo '
-																	<i class="fa text-success fa-star" aria-hidden="true" ></i>
-																	<i class="fa text-success fa-star" aria-hidden="true" ></i>
-																	<i class="fa text-success fa-star" aria-hidden="true" ></i>
-																	<i class="fa fa-star text-success" aria-hidden="true" ></i>
-																	<i class="fa fa-star text-success" aria-hidden="true" ></i>																	
+																	<i class="fa text-success fa-circle" aria-hidden="true" ></i>
+																	<i class="fa text-success fa-circle" aria-hidden="true" ></i>
+																	<i class="fa text-success fa-circle" aria-hidden="true" ></i>
+																	<i class="fa fa-circle text-success" aria-hidden="true" ></i>
+																	<i class="fa fa-circle text-success" aria-hidden="true" ></i>																	
 																	';
 																	break;
 															}
@@ -322,11 +322,11 @@ if (comments_open() || get_comments_number()) { ?>
 										<div class="item_calificacion s-50">
 											<div class="t"><?php echo $items_calificacion[$i]; ?></div>
 											<div class="estrellas" ng-class="{ 'is_rate': star !== 0 }" ng-mouseleave="(item_selected[<?php echo $i ?>] ? item_star[<?php echo $i ?>] = item_selected[<?php echo $i ?>][0] : item_star[<?php echo $i ?>] = 0)" ng-init="item_star[<?php echo $i ?>] = 0">
-												<i title="<?php echo __('malo', 'roam_child'); ?> " class="fa fa-star-o text-success" ng-class="{ 'fa-star-o': item_star[<?php echo $i ?>] < 1, 'fa-star': item_star[<?php echo $i ?>] > 0 }" str="1" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 1" ng-click="set_star( 1 , <?php echo $i; ?>, '<?php echo $items_calificacion[$i]; ?>' )"></i>
-												<i title="<?php echo __('regular', 'roam_child'); ?> " class="fa fa-star-o text-success" ng-class="{ 'fa-star-o': item_star[<?php echo $i ?>] < 2, 'fa-star': item_star[<?php echo $i ?>] > 1 }" str="2" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 2" ng-click="set_star( 2 , <?php echo $i; ?>, '<?php echo $items_calificacion[$i]; ?>' )"></i>
-												<i title="<?php echo __('normal', 'roam_child'); ?> " class="fa fa-star-o text-success" ng-class="{ 'fa-star-o': item_star[<?php echo $i ?>] < 3, 'fa-star': item_star[<?php echo $i ?>] > 2 }" str="3" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 3" ng-click="set_star( 3 , <?php echo $i; ?>, '<?php echo $items_calificacion[$i]; ?>' )"></i>
-												<i title="<?php echo __('bueno', 'roam_child'); ?> " class="fa fa-star-o text-success" ng-class="{ 'fa-star-o': item_star[<?php echo $i ?>] < 4, 'fa-star': item_star[<?php echo $i ?>] > 3 }" str="4" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 4" ng-click="set_star( 4 , <?php echo $i  ?>, '<?php echo $items_calificacion[$i]; ?>' )"></i>
-												<i title="<?php echo __('excelente', 'roam_child'); ?> " class="fa fa-star-o text-success" ng-class="{ 'fa-star-o': item_star[<?php echo $i ?>] < 5, 'fa-star': item_star[<?php echo $i ?>] === 5 }" str="5" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 5" ng-click="set_star( 5 , <?php echo $i; ?>,  '<?php echo $items_calificacion[$i]; ?>' )"></i>
+												<i title="<?php echo __('malo', 'roam_child'); ?> " class="fa fa-circle-o text-success" ng-class="{ 'fa-circle-o': item_star[<?php echo $i ?>] < 1, 'fa-circle': item_star[<?php echo $i ?>] > 0 }" str="1" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 1" ng-click="set_star( 1 , <?php echo $i; ?>, '<?php echo $items_calificacion[$i]; ?>' )"></i>
+												<i title="<?php echo __('regular', 'roam_child'); ?> " class="fa fa-circle-o text-success" ng-class="{ 'fa-circle-o': item_star[<?php echo $i ?>] < 2, 'fa-circle': item_star[<?php echo $i ?>] > 1 }" str="2" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 2" ng-click="set_star( 2 , <?php echo $i; ?>, '<?php echo $items_calificacion[$i]; ?>' )"></i>
+												<i title="<?php echo __('normal', 'roam_child'); ?> " class="fa fa-circle-o text-success" ng-class="{ 'fa-circle-o': item_star[<?php echo $i ?>] < 3, 'fa-circle': item_star[<?php echo $i ?>] > 2 }" str="3" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 3" ng-click="set_star( 3 , <?php echo $i; ?>, '<?php echo $items_calificacion[$i]; ?>' )"></i>
+												<i title="<?php echo __('bueno', 'roam_child'); ?> " class="fa fa-circle-o text-success" ng-class="{ 'fa-circle-o': item_star[<?php echo $i ?>] < 4, 'fa-circle': item_star[<?php echo $i ?>] > 3 }" str="4" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 4" ng-click="set_star( 4 , <?php echo $i  ?>, '<?php echo $items_calificacion[$i]; ?>' )"></i>
+												<i title="<?php echo __('excelente', 'roam_child'); ?> " class="fa fa-circle-o text-success" ng-class="{ 'fa-circle-o': item_star[<?php echo $i ?>] < 5, 'fa-circle': item_star[<?php echo $i ?>] === 5 }" str="5" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 5" ng-click="set_star( 5 , <?php echo $i; ?>,  '<?php echo $items_calificacion[$i]; ?>' )"></i>
 											</div>
 										</div>
 
@@ -343,11 +343,11 @@ if (comments_open() || get_comments_number()) { ?>
 									<div class="item_calificacion s-field">
 										<div class="t"><?php echo $items_calificacion[$i]; ?></div>
 										<div class="estrellas" ng-class="{ 'is_rate': star !== 0 }" ng-mouseleave="(item_selected[<?php echo $i ?>] ? item_star[<?php echo $i ?>] = item_selected[<?php echo $i ?>][0] : item_star[<?php echo $i ?>] = 0)" ng-init="item_star[<?php echo $i ?>] = 0">
-											<i title="<?php echo __('malo', 'roam_child'); ?> " class="fa fa-star-o text-success" ng-class="{ 'fa-star-o': item_star[<?php echo $i ?>] < 1, 'fa-star': item_star[<?php echo $i ?>] > 0 }" str="1" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 1" ng-click="set_star( 1 , <?php echo $i; ?>, '<?php echo $items_calificacion[$i]; ?>' )"></i>
-											<i title="<?php echo __('regular', 'roam_child'); ?> " class="fa fa-star-o text-success" ng-class="{ 'fa-star-o': item_star[<?php echo $i ?>] < 2, 'fa-star': item_star[<?php echo $i ?>] > 1 }" str="2" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 2" ng-click="set_star( 2 , <?php echo $i; ?>, '<?php echo $items_calificacion[$i]; ?>' )"></i>
-											<i title="<?php echo __('normal', 'roam_child'); ?> " class="fa fa-star-o text-success" ng-class="{ 'fa-star-o': item_star[<?php echo $i ?>] < 3, 'fa-star': item_star[<?php echo $i ?>] > 2 }" str="3" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 3" ng-click="set_star( 3 , <?php echo $i; ?>, '<?php echo $items_calificacion[$i]; ?>' )"></i>
-											<i title="<?php echo __('bueno', 'roam_child'); ?> " class="fa fa-star-o text-success" ng-class="{ 'fa-star-o': item_star[<?php echo $i ?>] < 4, 'fa-star': item_star[<?php echo $i ?>] > 3 }" str="4" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 4" ng-click="set_star( 4 , <?php echo $i  ?>, '<?php echo $items_calificacion[$i]; ?>' )"></i>
-											<i title="<?php echo __('excelente', 'roam_child'); ?> " class="fa fa-star-o text-success" ng-class="{ 'fa-star-o': item_star[<?php echo $i ?>] < 5, 'fa-star': item_star[<?php echo $i ?>] === 5 }" str="5" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 5" ng-click="set_star( 5 , <?php echo $i; ?>,  '<?php echo $items_calificacion[$i]; ?>' )"></i>
+											<i title="<?php echo __('malo', 'roam_child'); ?> " class="fa fa-circle-o text-success" ng-class="{ 'fa-circle-o': item_star[<?php echo $i ?>] < 1, 'fa-circle': item_star[<?php echo $i ?>] > 0 }" str="1" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 1" ng-click="set_star( 1 , <?php echo $i; ?>, '<?php echo $items_calificacion[$i]; ?>' )"></i>
+											<i title="<?php echo __('regular', 'roam_child'); ?> " class="fa fa-circle-o text-success" ng-class="{ 'fa-circle-o': item_star[<?php echo $i ?>] < 2, 'fa-circle': item_star[<?php echo $i ?>] > 1 }" str="2" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 2" ng-click="set_star( 2 , <?php echo $i; ?>, '<?php echo $items_calificacion[$i]; ?>' )"></i>
+											<i title="<?php echo __('normal', 'roam_child'); ?> " class="fa fa-circle-o text-success" ng-class="{ 'fa-circle-o': item_star[<?php echo $i ?>] < 3, 'fa-circle': item_star[<?php echo $i ?>] > 2 }" str="3" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 3" ng-click="set_star( 3 , <?php echo $i; ?>, '<?php echo $items_calificacion[$i]; ?>' )"></i>
+											<i title="<?php echo __('bueno', 'roam_child'); ?> " class="fa fa-circle-o text-success" ng-class="{ 'fa-circle-o': item_star[<?php echo $i ?>] < 4, 'fa-circle': item_star[<?php echo $i ?>] > 3 }" str="4" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 4" ng-click="set_star( 4 , <?php echo $i  ?>, '<?php echo $items_calificacion[$i]; ?>' )"></i>
+											<i title="<?php echo __('excelente', 'roam_child'); ?> " class="fa fa-circle-o text-success" ng-class="{ 'fa-circle-o': item_star[<?php echo $i ?>] < 5, 'fa-circle': item_star[<?php echo $i ?>] === 5 }" str="5" aria-hidden="true" ng-mouseenter="item_star[<?php echo $i ?>] = 5" ng-click="set_star( 5 , <?php echo $i; ?>,  '<?php echo $items_calificacion[$i]; ?>' )"></i>
 										</div>
 									</div>
 
