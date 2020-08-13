@@ -20,12 +20,13 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 		
 		<div class="<?php echo esc_attr( $mkdf_holder_params['inner'] ); ?>">
 			
-			
 			<?php roam_mikado_get_blog_single( 'standard' ); ?>
 		</div>
 		
 		<?php do_action( 'roam_mikado_before_container_close' ); ?>
 	</div>
 <?php endwhile; endif;
-  do_shortcode('[ser_like_share]');
+
+
+do_shortcode('[ser_like_share]');
 get_footer(); ?>
