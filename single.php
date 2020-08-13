@@ -12,7 +12,13 @@ if(in_array($terms[0]->slug, $tipos_alcaldia)){
 
 }else{
 	get_template_part( 'fovea-comercio-template' );
-	
 }
-echo do_shortcode('ser_like_share');
-get_footer(); ?>
+
+do_shortcode('ser_like_share');
+
+//var_dump($post);
+
+get_footer(); 
+
+
+?>
