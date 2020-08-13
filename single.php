@@ -14,5 +14,5 @@ if(in_array($terms[0]->slug, $tipos_alcaldia)){
 	get_template_part( 'fovea-comercio-template' );
 	
 }
- do_shortcode('ser_like_share');
+echo do_shortcode('ser_like_share');
 get_footer(); ?>
