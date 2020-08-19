@@ -48,7 +48,7 @@ if (have_posts()) : while (have_posts()) : the_post();
 
 						<div class="mkdf-tour-item-wrapper">
                                 <div  class="fovea-content-comentarios">
-                                      <?php if (comments_open()){
+                                      <?php  echo '<script> var post_id = '.get_the_ID().'; </script>'; if (comments_open()){
                                             comments_template();
                                         }
                                 ?>
