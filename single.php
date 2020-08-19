@@ -15,8 +15,6 @@ if(get_userdata($post->post_author)->roles[0] !== 'comerciante'){
 
 }
 
-do_shortcode('[ser_like_share]');
-
 
 get_footer(); 
 

@@ -28,6 +28,8 @@ if (have_posts()) : while (have_posts()) : the_post();
                         <h1><?php single_post_title(); ?></h1>
                     </div>
 
+                    <?php do_shortcode('[ser_like_share]'); ?>
+
                     <div class="clearfix mkdf-grid-medium-gutter">
                         <div class="mkdf-grid-col-9">
                             <article class="mkdf-tour-item-wrapper">
@@ -64,5 +66,5 @@ endif;
 
 
 
-do_shortcode('[ser_like_share]');
+
 get_footer(); ?>
