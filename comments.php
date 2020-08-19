@@ -6,8 +6,6 @@ if (comments_open() || get_comments_number()) { ?>
 
 			<?php if (have_comments()) { 
 				
-				
-				
 				?>
 
 				<div class="mkdf-comment-holder-inner">
@@ -384,16 +382,16 @@ if (comments_open() || get_comments_number()) { ?>
 						</div>
 
 				</div>
-
+				<?php if(get_post_type() !== 'blog'){ ?>
 				<div class="s-100 row end-center">
 
 					<button class="btnn-add-galery" ng-click="add_galery()"><?php echo __('Agregar imagen', 'serlib') ?></button>
 
 				</div>
-
+				<?php } ?>
 				<div class="s-100">
 					<md-checkbox aria-label="politica_privacidad_I18N" class="md-primary" ng-model="policy">
-						<p><?php echo __('Declaró que este comentario está basado en mi experiencia vivida en el Golfo de Morrosquillo, no tengo ninguna relación con este comercio y no recibí ningún incentivo económico por escribirlo.', 'roam_child') ?></a>
+						<p><?php echo __('Declaró que este comentario está basado en mi experiencia vivida en el Golfo de Morrosquillo, no tengo ninguna relación con esta entidad y no recibí ningún incentivo económico por escribirlo.', 'roam_child') ?></a>
 					</md-checkbox>
 
 				</div>
