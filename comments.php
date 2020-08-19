@@ -310,6 +310,14 @@ if (comments_open() || get_comments_number()) { ?>
 
 
 								echo '<script> var post_id = ' . get_the_ID() . '</script>';
+								
+								$user_meta=get_userdata( $post->post_author );
+
+								$user_roles= $user_meta->roles;
+								
+								if($user_roles === 'aliado'){
+									$items_calificacion = [];
+								}
 
 								for ($i = 0; $i < count($items_calificacion); $i++) {
 									
