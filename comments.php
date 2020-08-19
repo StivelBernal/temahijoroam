@@ -5,14 +5,14 @@ if (comments_open() || get_comments_number()) { ?>
 		<div class="mkdf-comment-holder clearfix" id="comments">
 
 			<?php if (have_comments()) { 
-				
+					$com_con = get_comments_number();
 				?>
 
 				<div class="mkdf-comment-holder-inner">
 					<div class="mkdf-comments-title">
 						<h4>
 						  <span ng-if="cal_total !== 0"> <?php echo __('Calificación Promedio', 'roam_child');  ?> {{cal_total}}</span><br>
-						<span style="font-size:1.2rem; opacity:0.7;"><?php get_comments_number();  ?></span></h4>
+						<span style="font-size:1.2rem; opacity:0.7;"><?php echo 'Comentarios ( '.$com_con.' )';    ?></span></h4>
 					</div>
 					<div class="mkdf-comments">
 						<ul class="mkdf-comment-list">
