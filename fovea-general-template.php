@@ -23,7 +23,7 @@ if (have_posts()) : while (have_posts()) : the_post();
         //Get classes for holder and holder inner
         $mkdf_holder_params = roam_mikado_get_holder_params_blog();
         echo '
-         <div class="s-featured-header" style="background-image: url('.get_the_post_thumbnail_url().')"></div>
+         <div class="s-featured-header" style="background-image: url('.get_the_post_thumbnail_url(get_the_ID(),'full').')"></div>
         ';
 ?>
        
