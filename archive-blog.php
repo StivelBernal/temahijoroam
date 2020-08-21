@@ -7,9 +7,7 @@ get_header();
 
 $opts = get_option( 'serlib' );
 
-//roam_mikado_get_title();
-//$opts = get_option( 'serlib' );
-if ($opts['url_image_blog'] == ''){
+if ($opts['url_image_blog'] !== ''){
 	$image = $opts['url_image_blog'];
 }else{
    $image = '/wp-content/plugins/ser_lib/assets/img/blog-default.jpg';
@@ -17,22 +15,12 @@ if ($opts['url_image_blog'] == ''){
 
 ?>
 
-<div class="fovea-title-single mkdf-title-holder mkdf-standard-type mkdf-has-bg-image mkdf-bg-parallax" 
-	style="height: 550px; background-image: url(<?php echo $image; ?>); background-position: center -40.81px;" data-height="550">
-	<div class="mkdf-title-image">
-		<?php
-
-		if (has_post_thumbnail(  $post->ID )){
-			echo' <img itemprop="image" src="';
-			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
-		}
-
-		echo $image[0].'" alt="m">'; ?>
-	</div>
-	<div class="mkdf-title-wrapper" style="height: 550px">
+<div class="fovea-title-single s-featured-header mkdf-title-holder mkdf-standard-type  mkdf-bg-parallax" 
+	style=" background-image: url(<?php echo $image; ?>); background-position: center -40.81px;" >
+	<div class="mkdf-title-wrapper" >
 		<div class="mkdf-title-inner">
 		<div class="mkdf-grid">
-			<h1 class="mkdf-page-title entry-title" style="color: #ffffff"><?php echo __('Blog', 'serlib'); ?> </h1>
+			<h1 class="mkdf-page-title entry-title" style="color: #ffffff; text-shadow:1px 1px 2px #000000a6;"><?php echo __('Blog', 'serlib'); ?> </h1>
 		</div>
 		</div>
 	</div>
@@ -43,7 +31,8 @@ if ($opts['url_image_blog'] == ''){
 	<?php do_action( 'roam_mikado_after_container_open' ); ?>
 	
 	<div class="<?php echo esc_attr( $mkdf_holder_params['inner'] ); ?>">
-		<?php roam_mikado_get_blog( $mkdf_blog_type ); ?> 
+		<?php  get_template_part( 'templates-fovea/categoria_blog' ); 
+		//roam_mikado_get_blog( $mkdf_blog_type ); ?> 
 	</div>
 	
 	<?php do_action( 'roam_mikado_before_container_close' ); ?>

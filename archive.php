@@ -154,7 +154,7 @@ if(!isset($slider[0]) || $slider[0] === ''){
 		<?php 
 			
 			if($municipio && !$tipo_entrada && !isset($_GET['busqueda'])){
-				//var_dump($municipio);
+				
 				get_template_part( 'templates-fovea/categoria-municipio' );
 				
 			}else{
