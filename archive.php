@@ -21,6 +21,8 @@ if(isset($rutas[2]) ){
 	$tipo_entrada = false;
 }
 
+var_dump($tipo_entrada, 2);
+
 $municipio = get_term_by('slug', $rutas[1], 'category' );
 $catfull = '';
 
@@ -64,7 +66,7 @@ if( isset($tipo_entrada) && $tipo_entrada !== false ){
 /**Cerramos comparacion si es municipio o si es una categoria interna */
 } 
 
-if(!isset($_GET["busqueda"]) && isset($tipo_entrada)){
+if(!isset($_GET["busqueda"])){
 					
 	global $wpdb;
 	
@@ -133,9 +135,7 @@ if(!isset($slider[0]) || $slider[0] === ''){
 	
 	<div class="<?php echo esc_attr( $mkdf_holder_params['inner'] ); ?>">
 
-			<?php  
-
-					
+			<?php  				
 
 				if(!isset($_GET["busqueda"]) && isset($tipo_entrada)){
 						
@@ -145,15 +145,12 @@ if(!isset($slider[0]) || $slider[0] === ''){
 						$content = $relacionado_post->post_content;
 						$content = apply_filters('the_content', $content);
 						$content = str_replace(']]>', ']]&gt;', $content);
-						
-					
 
 					}
 					
 				}
 
 			?>
-
 				
 		<?php 
 			
