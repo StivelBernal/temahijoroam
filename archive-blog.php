@@ -14,7 +14,7 @@ if ($opts['url_image_blog'] !== ''){
 }
 
 ?>
-
+<script> document.title = 'Blog';</script>
 <div class="fovea-title-single s-featured-header mkdf-title-holder mkdf-standard-type  mkdf-bg-parallax" 
 	style=" background-image: url(<?php echo $image; ?>); background-position: center -40.81px;" >
 	<div class="mkdf-title-wrapper" >
