@@ -21,12 +21,11 @@ if(isset($rutas[2]) ){
 	$tipo_entrada = false;
 }
 
-var_dump($tipo_entrada, 2);
 
 $municipio = get_term_by('slug', $rutas[1], 'category' );
 $catfull = '';
 
-if( isset($tipo_entrada) && $tipo_entrada !== false ){
+if( !$tipo_entrada && !isset($tipo_entrada) ){
 	
 	$tipo = $rutas[2];
 	$municipio_s = $rutas[1];
@@ -137,7 +136,7 @@ if(!isset($slider[0]) || $slider[0] === ''){
 
 			<?php  				
 
-				if(!isset($_GET["busqueda"]) && isset($tipo_entrada)){
+				if(!isset($_GET["busqueda"])){
 						
 					if( isset($value) && !empty($value) ){
 						
@@ -145,7 +144,7 @@ if(!isset($slider[0]) || $slider[0] === ''){
 						$content = $relacionado_post->post_content;
 						$content = apply_filters('the_content', $content);
 						$content = str_replace(']]>', ']]&gt;', $content);
-
+echo 'dsf';
 					}
 					
 				}
@@ -155,9 +154,9 @@ if(!isset($slider[0]) || $slider[0] === ''){
 		<?php 
 			
 			if($municipio && !$tipo_entrada && !isset($_GET['busqueda'])){
-
+				//var_dump($municipio);
 				get_template_part( 'templates-fovea/categoria-municipio' );
-
+				
 			}else{
 
 			
