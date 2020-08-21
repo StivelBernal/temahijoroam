@@ -114,8 +114,8 @@ if (have_posts()) : while (have_posts()) : the_post();
                             <a href="'.$metas->facebook.'" target="blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
                             <a href="https://wa.me/'.$whatsapp.'" target="blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
                             <a href="'.$metas->instagram.'" target="blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                            <a href="tel:'.$metas->telefono.'" target="blank"><i class="fa fa-phone-square" aria-hidden="true"></i></a>
-                            <a href="mailto:'.$metas->correo.'" target="blank"><i class="fa fa-envelope-open-o " aria-hidden="true"></i></a>
+                            <a href="tel:'.$metas->telefono.'"><i class="fa fa-phone-square" aria-hidden="true"></i></a>
+                            <a href="mailto:'.$metas->correo.'" ><i class="fa fa-envelope-open-o " aria-hidden="true"></i></a>
                             <a href="'.$metas->web.'" target="blank"><i class="fa fa-external-link-square " aria-hidden="true"></i></a>
                            
                         </div>  '; ?>
