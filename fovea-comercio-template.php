@@ -103,6 +103,9 @@ if (have_posts()) : while (have_posts()) : the_post();
 
             <div class="mkdf-container">
                 <div class="fovea-container-inner mkdf-container-inner">
+                    <div class="share-comercio">
+                        <?php do_shortcode('[ser_like_share]'); ?>
+                    </div>
                     <!--Title redes sociales a la izquierda-->
                     <div class="title-and-socials">
                         <h1><?php single_post_title(); ?></h1>
