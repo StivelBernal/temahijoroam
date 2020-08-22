@@ -133,12 +133,40 @@ if(!isset($slider[0]) || $slider[0] === ''){
 	<?php do_action( 'roam_mikado_after_container_open' ); ?>
 	
 	<div class="<?php echo esc_attr( $mkdf_holder_params['inner'] ); ?>">
+			
+			<?php  				
+				
+				
+				
+				if(!isset($_GET["busqueda"])){
+						
+					if( isset($value) && !empty($value) ){
+						
+						$relacionado_post = get_post($value[0]->post_id);
+						$content = $relacionado_post->post_content;
+						$content = apply_filters('the_content', $content);
+						$content = str_replace(']]>', ']]&gt;', $content);
+						echo $content;
+					}
+					
+				}
+				
+				if($municipio && !$tipo_entrada && !isset($_GET['busqueda'])){
+					// categorias
+					get_template_part( 'templates-fovea/categoria-municipio' );
+
+					do_shortcode('[serlib_buscador_home_results_blog tipo_usuario="gobernacion" destino]');
+					do_shortcode('[serlib_buscador_home_results_blog tipo_usuario="alcaldia" destino]');
+					do_shortcode('[serlib_buscador_home_results_blog tipo_usuario="aliado" destino]');
+				}
+
+			?>
 				
 		<?php 
 			
 			if($municipio && !$tipo_entrada && !isset($_GET['busqueda'])){
 				
-				get_template_part( 'templates-fovea/categoria-municipio' );
+				//get_template_part( 'templates-fovea/categoria-municipio' );
 				
 			}else{
 
@@ -159,24 +187,6 @@ if(!isset($slider[0]) || $slider[0] === ''){
 
 			}
 		?>
-
-		<?php  				
-
-			if(!isset($_GET["busqueda"])){
-					
-				if( isset($value) && !empty($value) ){
-					
-					$relacionado_post = get_post($value[0]->post_id);
-					$content = $relacionado_post->post_content;
-					$content = apply_filters('the_content', $content);
-					$content = str_replace(']]>', ']]&gt;', $content);
-					echo $content;
-				}
-				
-			}
-
-		?>
-
 	</div>
 	
 	<?php do_action( 'roam_mikado_before_container_close' ); ?>
