@@ -56,6 +56,8 @@
                                 $imagen_destacada = '/wp-content/plugins/ser_lib/assets/img/images.png';
                             }
 
+                            $autor = get_userdata($post->post_author);
+
                             ?>
                             <article class="mkdf-post-has-media s-32">
                                 <div class="mkdf-post-content">
@@ -74,12 +76,10 @@
                                                 <a itemprop="url" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                                 <?php the_title(); ?> </a>
                                             </h3>
-                                              <!--<div class="mkdf-post-text-main">
-                                                  <p itemprop="description" class="mkdf-post-excerpt">
-                                                <div class="mkdf-post-excerpt-holder">
-                                                     </p>
-                                                </div>
-                                            </div>-->
+                                            <div class="detalles-post-blog">
+                                                <span class="author"> <i class="fa fa-user" aria-hidden="true"></i><?php echo $autor->first_name.' '.$autor->last_name; ?> </span>
+                                                <span class="fecha"> <i class="fa fa-calendar-check-o" aria-hidden="true"></i><?php the_date();  ?></span>
+                                            </div>
                                           
                                         </div>
                                     </div>
