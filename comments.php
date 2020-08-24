@@ -200,10 +200,12 @@ if (comments_open() || get_comments_number()) { ?>
 												<div class="mkdf-comment-text">
 													<div class="mkdf-comment-info">
 														<h5 class="mkdf-comment-name vcard">
-															<a target="_blank"><?php echo $child_comm[$i]->comment_author ?></a> </h5>
+															<a target="_blank"><?php echo $child_comm[$i]->comment_author ?></a> 
+														</h5>
 														<div class="mkdf-comment-date"><?php $de = __('\d\e', 'roam_child');
 																					_e('el', 'roam_child');
-																					echo date( ' j ' . $de . ' F, Y / g:i a', strtotime($child_comm[$i]->comment_date )); ?></div>
+																					echo date( ' j ' . $de . ' F, Y / g:i a', strtotime($child_comm[$i]->comment_date )); ?>
+														</div>
 													</div>
 													
 
@@ -230,7 +232,7 @@ if (comments_open() || get_comments_number()) { ?>
 														<?php
 														} 
 														?>
-												
+													</div>
 												</div>
 											</div>
 
