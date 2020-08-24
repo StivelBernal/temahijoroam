@@ -408,7 +408,7 @@ header{
 }
 
 .reply-cancel{
-    background-color: gray;
+    background-color: #88bc42;
     color: white;
     float: right;
     padding:3px 8px;
