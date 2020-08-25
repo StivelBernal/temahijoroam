@@ -109,7 +109,7 @@ if (have_posts()) : while (have_posts()) : the_post();
                     <!--Title redes sociales a la izquierda-->
                     <div class="title-and-socials">
                         <h1><?php single_post_title(); ?></h1>
-                        <em><?php the_excerpt() ?></em>
+                        <em style="text-align: text-center;"><?php the_excerpt() ?></em>
                          <?php 
                             $whatsapp = str_replace(['+', ' ', '-', '.'], '', $metas->whatsapp );
                             echo '<p><strong>'.__('Dirección:').'</strong> '.$metas->direccion.'</p>
