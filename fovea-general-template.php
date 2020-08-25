@@ -50,9 +50,6 @@ if (have_posts()) : while (have_posts()) : the_post();
                             <span class="mkdf-tour-nav-section-title">
                             <?php echo _x('Comentarios', 'nav menu single page comercio', 'roam-child');  ?> </span>
                         </div>
-                     
-                       
-                    </ul>
 
                 </div>
 
