@@ -50,15 +50,15 @@ if( have_posts() ){
            
            <?php
 
-                if( has_post_thumbnail() ){
-                            
-                    $imagen_destacada = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
+               
+                if (has_post_thumbnail()) {
 
-                }else{
+                    $imagen_destacada = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail')[0];
+                } else {
 
-                    $imagen_destacada = '/wp-content/plugins/ser_lib/assets/img/images.png';
-
+                    $imagen_destacada = 'https://golfodemorrosquillo.com/wp-content/uploads/2020/08/AZUL-OSCURO-con-logo-Horizontal.png';
                 }
+
             ?> 
 
             <div class="fovea-category-1">
