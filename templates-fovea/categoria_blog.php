@@ -64,7 +64,7 @@
                                     <div class="mkdf-post-heading">
 
                                         <div class="blog-fov-img mkdf-post-image">
-                                            <a itemprop="url" href="<?php the_permalink(); ?>" title="gfhhgf">
+                                            <a itemprop="url" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                                 <img src="<?php echo $imagen_destacada; ?>" > </a>
                                         </div>
                                     </div>
