@@ -80,7 +80,7 @@ if(!isset($_GET["busqueda"])){
 			if(isset($id_municipio[0])){
 				echo '<script> var id_municipio = '.$id_municipio[0].';</script>';
 			}
-
+			var_dump($id_gobernacion);
 			if(isset($id_gobernacion[0])){
 				echo '<script> var id_gobernacion = '.$id_gobernacion[0].';</script>';
 			}
