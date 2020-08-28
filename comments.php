@@ -161,7 +161,7 @@ if (comments_open() || get_comments_number()) { ?>
 												</div>
 												<?php if (is_user_logged_in()) { ?>
 
-													<a rel="nofollow" class="comment-reply-link" ng-click="reply(<?php echo get_comment_ID(); ?>,$event)" aria-label="<?php echo __('Responder a ', 'roam_child') . comment_author(); ?>"><?php echo __('Responder', 'roam_child'); ?> </a>
+													<a rel="nofollow" class="comment-reply-link" ng-click="reply(<?php echo get_comment_ID() ?>, '<?php comment_author(); ?>',$event)" aria-label="<?php echo __('Responder a ', 'roam_child') . comment_author(); ?>"><?php echo __('Responder', 'roam_child'); ?> </a>
 													<?php if ($comment->user_id == $user->ID) {
 														echo '<a ng-click="delete_comment(' . get_comment_ID() . ', $event) " class="comment_delete" > ' . __('Eliminar', 'roam_child') . '</a>';
 													} ?>
@@ -369,7 +369,7 @@ if (comments_open() || get_comments_number()) { ?>
 						</div>
 
 						<div ng-if="reply_id" class="reply-info">
-							<h4><?php echo __('Responder a comentario', 'roam_child'); ?> </h4>
+							<h4><?php echo __('Responder a comentario de ', 'roam_child') ?><span>{{reply_name}}</span> </h4>
 							<div ng-click="cancel_reply()" class="reply-cancel"> Cancelar </div>
 						</div>
 
