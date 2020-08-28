@@ -154,16 +154,16 @@ if(!isset($slider[0]) || $slider[0] === ''){
 				if($municipio && !$tipo_entrada && !isset($_GET['busqueda'])){
 					// categorias
 					get_template_part( 'templates-fovea/categoria-municipio' );
-
+					echo 'dfgdg';
 					do_shortcode('[serlib_buscador_home_results_blog tipo_usuario="gobernacion" destino]');
 
 					do_shortcode('[serlib_buscador_home_results_blog tipo_usuario="alcaldia" destino]');
 					
-					echo do_shortcode('[serlib_buscador_home_results_blog tipo_usuario="aliado" destino]');
+					do_shortcode('[serlib_buscador_home_results_blog tipo_usuario="aliado" destino]');
 				}
 
 			?>
-				
+					
 		<?php 
 			
 			if($municipio && !$tipo_entrada && !isset($_GET['busqueda'])){
