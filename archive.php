@@ -78,11 +78,11 @@ if(!isset($_GET["busqueda"])){
 			$id_gobernacion = get_post_meta( $value[0]->post_id, 'gobernacion');
 
 			if(isset($id_municipio[0])){
-				echo '<script> var id_municipio = '.$id_municipio.';</script>';
+				echo '<script> var id_municipio = '.$id_municipio[0].';</script>';
 			}
 
 			if(isset($id_gobernacion[0])){
-				echo '<script> id_gobernacion = '.$id_gobernacion.';</script>';
+				echo '<script> var id_gobernacion = '.$id_gobernacion[0].';</script>';
 			}
 
 			echo '<script>  var municipio = "'.$rutas[1].'"; </script>';
