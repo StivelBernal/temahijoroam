@@ -76,7 +76,7 @@ if(!isset($_GET["busqueda"])){
 		if(!isset($_GET["busqueda"])){				
 			$id_municipio = get_post_meta( $value[0]->post_id, 'alcaldiau');
 			$id_gobernacion = get_post_meta( $value[0]->post_id, 'gobernacion');
-			var_dump($id_municipio);
+			var_dump($id_municipio[0] == '');
 			if(isset($id_municipio[0]) || $id_municipio[0] !== ''){
 				echo '<script> var id_municipio = '.$id_municipio[0].';</script>';
 			}
