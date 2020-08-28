@@ -156,8 +156,10 @@ if(!isset($slider[0]) || $slider[0] === ''){
 					get_template_part( 'templates-fovea/categoria-municipio' );
 
 					do_shortcode('[serlib_buscador_home_results_blog tipo_usuario="gobernacion" destino]');
+
 					do_shortcode('[serlib_buscador_home_results_blog tipo_usuario="alcaldia" destino]');
-					do_shortcode('[serlib_buscador_home_results_blog tipo_usuario="aliado" destino]');
+					
+					echo do_shortcode('[serlib_buscador_home_results_blog tipo_usuario="aliado" destino]');
 				}
 
 			?>
