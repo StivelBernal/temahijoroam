@@ -78,7 +78,7 @@
                                             </h3>
                                             <div class="detalles-post-blog">
                                                 <span class="author"> <i class="fa fa-user" aria-hidden="true"></i><?php echo $autor->first_name.' '.$autor->last_name; ?> </span>
-                                                <span class="fecha"> <i class="fa fa-calendar-check-o" aria-hidden="true"></i><?php the_date();  ?></span>
+                                                <span class="fecha"> <i class="fa fa-calendar-check-o" aria-hidden="true"></i><?php echo  date_i18n( 'F j, Y', $post->post_date);  ?></span>
                                             </div>
                                           
                                         </div>
