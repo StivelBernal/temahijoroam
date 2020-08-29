@@ -38,7 +38,11 @@ if (have_posts()) : while (have_posts()) : the_post();
 
         /**Get user meta mapa, galeria, comentarios, servicios */
 
+        if ($metas->galery === []) {
 
+            array_push( $metas->galery, 'https://golfodemorrosquillo.com/wp-content/uploads/2020/08/AZUL-OSCURO-con-logo-Horizontal.png');
+       
+        }
       
         $itemsCarrusel = '';
       
