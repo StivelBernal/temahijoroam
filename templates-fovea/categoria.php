@@ -57,10 +57,9 @@ if( have_posts() ){
 
                     }else{
 
-                        $imagen_destacada = '/wp-content/plugins/ser_lib/assets/img/images.png';
-
+                        $imagen_destacada = 'https://golfodemorrosquillo.com/wp-content/uploads/2020/08/AZUL-OSCURO-con-logo-Horizontal.png';
+                   
                     }
-
             ?> 
 
             <div class="fovea-category-1">
