@@ -75,17 +75,17 @@ if(!isset($_GET["busqueda"])){
 
 		$id_municipio = get_post_meta( $value[0]->post_id, 'alcaldiau');
 		$id_gobernacion = get_post_meta( $value[0]->post_id, 'gobernacion');
-		
+		echo '<script>';
 		if(isset($id_municipio[0]) && $id_municipio[0] !== ''){
 		
-			echo '<script> var id_alcaldia = '.$id_municipio[0].';</script>';
+			 echo 'var id_alcaldia = '.$id_municipio[0].';';
 		}
 		
 		if(isset($id_gobernacion[0]) && $id_gobernacion[0] !== ''){
-			echo '<script> var id_gobernacion = '.$id_gobernacion[0].';</script>';
+			echo ' var id_gobernacion = '.$id_gobernacion[0].';';
 		}
 
-		echo '<script>  var municipio = "'.$rutas[1].'"; </script>';
+		echo ' var municipio = "'.$rutas[1].'"; </script>';
 		
 	}
 
