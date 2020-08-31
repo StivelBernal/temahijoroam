@@ -36,7 +36,7 @@ if( !$tipo_entrada && !isset($tipo_entrada) ){
 	$catdesign2 = ['comercio', 'hospedaje', 'gastronomia']; 
 	$catdesign3 = ['sitios', 'emergencias']; 
 	$catdesign4 = ['diversion', 'ferias-y-fiestas']; 
-	
+	var_dump($rutas);	
 	if(in_array($rutas[2], $catdesign2)){
 		$catopt = 2;
 	}else if(in_array($rutas[2], $catdesign3)){

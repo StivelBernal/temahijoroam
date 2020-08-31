@@ -47,6 +47,7 @@ if( have_posts() ){
 
 
        <div class="entry clearfix s-field hover-cat-1 diversion">
+
             <?php
 
                                 
