@@ -73,19 +73,8 @@ if(!isset($_GET["busqueda"])){
 
 		$value = $wpdb->get_results( "SELECT * FROM $wpdb->postmeta WHERE meta_value = ".$municipio->term_id." AND meta_key = 'municipio'" );
 
-		$id_municipio = get_post_meta( $value[0]->post_id, 'alcaldiau');
-		$id_gobernacion = get_post_meta( $value[0]->post_id, 'gobernacion');
-		echo '<script type="text/javascript">';
-		if(isset($id_municipio[0]) && $id_municipio[0] !== ''){
-		
-			 echo 'var id_alcaldia = "'.$id_municipio[0].'";';
-		}
-		
-		if(isset($id_gobernacion[0]) && $id_gobernacion[0] !== ''){
-			echo ' var id_gobernacion = "'.$id_gobernacion[0].'";';
-		}
-
-		echo ' var municipio = "'.$rutas[1].'"; </script>';
+		echo '<script type="text/javascript">
+				var municipio = "'.$rutas[1].'"; </script>';
 		
 	}
 
