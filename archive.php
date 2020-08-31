@@ -78,11 +78,11 @@ if(!isset($_GET["busqueda"])){
 		echo '<script type="text/javascript">';
 		if(isset($id_municipio[0]) && $id_municipio[0] !== ''){
 		
-			 echo 'var id_alcaldia = '.$id_municipio[0].';';
+			 echo 'var id_alcaldia = "'.$id_municipio[0].'";';
 		}
 		
 		if(isset($id_gobernacion[0]) && $id_gobernacion[0] !== ''){
-			echo ' var id_gobernacion = '.$id_gobernacion[0].';';
+			echo ' var id_gobernacion = "'.$id_gobernacion[0].'";';
 		}
 
 		echo ' var municipio = "'.$rutas[1].'"; </script>';
