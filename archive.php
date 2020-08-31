@@ -78,7 +78,7 @@ if(!isset($_GET["busqueda"])){
 		
 		if(isset($id_municipio[0]) && $id_municipio[0] !== ''){
 		
-			echo '<script> var id_municipio = '.$id_municipio[0].';</script>';
+			echo '<script> var id_alcaldia = '.$id_municipio[0].';</script>';
 		}
 		
 		if(isset($id_gobernacion[0]) && $id_gobernacion[0] !== ''){
