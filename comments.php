@@ -68,7 +68,7 @@ if (comments_open() || get_comments_number()) { ?>
 													<h4 class="mkdf-comment-name vcard">
 
 														<a target="_blank"><?php 
-														echo $comment->user_id; echo $post->post_author; var_dump(get_userdata($post->post_author));
+														echo $comment->user_id; echo $post->post_author;
 														if( $comment->user_id == $post->post_author && get_userdata($post->post_author)->roles[0] === 'comerciante'){
 															the_title();
 														}else{
@@ -214,7 +214,7 @@ if (comments_open() || get_comments_number()) { ?>
 														<h5 class="mkdf-comment-name vcard">
 															<a target="_blank">
 															<?php 
-																 var_dump($child_comm[$i]->comment_author); echo $post->post_author; var_dump(get_userdata($post->post_author));
+																 var_dump($child_comm[$i]->comment_author); echo $post->post_author; ;
 																																									
 																if( $comment->user_id === $post->post_author && get_userdata($post->post_author)->roles[0] === 'comerciante' ){
 																	the_title();
