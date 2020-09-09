@@ -214,9 +214,8 @@ if (comments_open() || get_comments_number()) { ?>
 														<h5 class="mkdf-comment-name vcard">
 															<a target="_blank">
 															<?php 
-																 var_dump($child_comm[$i]); echo $post->post_author; ;
-																																									
-																if( $comment->user_id === $post->post_author && get_userdata($post->post_author)->roles[0] === 'comerciante' ){
+															
+																if( $child_comm[$i]->user_id === $post->post_author && get_userdata($post->post_author)->roles[0] === 'comerciante' ){
 																	the_title();
 																}else{
 																	echo $child_comm[$i]->comment_author; 
