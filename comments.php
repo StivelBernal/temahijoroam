@@ -38,7 +38,7 @@ if (comments_open() || get_comments_number()) { ?>
 
 
 
-									<li class="comment byuser comment-author-brayan bypostauthor even thread-even depth-1">
+									<li class="comment byuser bypostauthor even thread-even depth-1">
 										<div class="mkdf-comment clearfix mkdf-post-author-comment">
 											<div class="mkdf-comment-image">
 												<img alt="<?php
@@ -66,7 +66,19 @@ if (comments_open() || get_comments_number()) { ?>
 											<div class="mkdf-comment-text">
 												<div class="mkdf-comment-info">
 													<h4 class="mkdf-comment-name vcard">
-														<a target="_blank"><?php comment_author(); ?></a> </h4>
+
+														<a target="_blank"><?php 
+														
+														if( $comment->user_id === $post->post_author && get_userdata($post->post_author)->roles[0] === 'comerciante'){
+															the_title();
+														}else{
+															comment_author(); 
+														}
+														
+														?>
+														</a> </h4>
+
+
 													<div class="mkdf-comment-date"><?php $de = __('\d\e', 'roam_child');
 																					_e('el', 'roam_child');
 																					comment_date(' j ' . $de . ' F, Y / g:i a') ?></div>
@@ -200,7 +212,16 @@ if (comments_open() || get_comments_number()) { ?>
 												<div class="mkdf-comment-text">
 													<div class="mkdf-comment-info">
 														<h5 class="mkdf-comment-name vcard">
-															<a target="_blank"><?php echo $child_comm[$i]->comment_author ?></a> 
+															<a target="_blank">
+															<?php 
+																																											
+																if( $comment->user_id === $post->post_author && get_userdata($post->post_author)->roles[0] === 'comerciante' ){
+																	the_title();
+																}else{
+																	echo $child_comm[$i]->comment_author; 
+																}
+															?>
+															</a> 
 														</h5>
 														<div class="mkdf-comment-date"><?php $de = __('\d\e', 'roam_child');
 																					_e('el', 'roam_child');
