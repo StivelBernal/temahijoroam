@@ -80,7 +80,6 @@ if(!isset($_GET["busqueda"])){
 
 	if($tipo_entrada){
 		
-
 		$query = "SELECT * FROM $wpdb->postmeta WHERE meta_value = '".$rutas[1]."/".$rutas[2]."'";
 		
 		$value = $wpdb->get_results( $query );						
@@ -88,14 +87,14 @@ if(!isset($_GET["busqueda"])){
 	}
 	
 	if( isset($value) && !empty($value) ){
+		
 		$slider = get_post_meta( $value[0]->post_id, 'banner_superior');
 
 		if (!empty($slider)) { 
+			
 			echo do_shortcode($slider[0]);
 		}
 		
-	
-  
 	}
 }
 
@@ -131,9 +130,7 @@ if(!isset($slider[0]) || $slider[0] === ''){
 	<div class="<?php echo esc_attr( $mkdf_holder_params['inner'] ); ?>">
 			
 			<?php  				
-				
-				
-				
+						
 				if(!isset($_GET["busqueda"])){
 						
 					if( isset($value) && !empty($value) ){
@@ -146,7 +143,7 @@ if(!isset($slider[0]) || $slider[0] === ''){
 					}
 					
 				}
-				
+				/*
 				if($municipio && !$tipo_entrada && !isset($_GET['busqueda'])){
 					// categorias
 					get_template_part( 'templates-fovea/categoria-municipio' );
@@ -156,7 +153,7 @@ if(!isset($slider[0]) || $slider[0] === ''){
 					do_shortcode('[serlib_buscador_home_results_blog tipo_usuario="alcaldia" destino]');
 					
 					do_shortcode('[serlib_buscador_home_results_blog tipo_usuario="aliado" destino]');
-				}
+				}*/
 
 			?>
 					
