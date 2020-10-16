@@ -2,7 +2,7 @@
     <div class="mkdf-grid-col-9 search-9">
         
        
-        <div class=" row-wrap">
+        <div class="s-100 row-wrap">
 
 
 <?php

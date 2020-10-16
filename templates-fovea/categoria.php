@@ -1,7 +1,7 @@
 <div class="mkdf-grid-row">
     <div class="mkdf-grid-col-9 search-9">
 
-        <?php echo do_shortcode( '[serlib_buscador_home_input] '); ?>
+        <?php //echo do_shortcode( '[serlib_buscador_home_input] '); ?>
         <div class=" row-wrap">
 
 
