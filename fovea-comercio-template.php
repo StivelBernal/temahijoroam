@@ -9,7 +9,7 @@ $metas->galery_ids = get_post_meta($post->ID , 'galeria_negocio')[0];
 $metas->galery = [];
 
 for($i = 0; $i < count($metas->galery_ids); $i++ ) { 
-    $metas->galery[$i] = wp_get_attachment_image_src($metas->galery_ids[$i])[0];
+    $metas->galery[$i] = wp_get_attachment_image_src($metas->galery_ids[$i], 'full' )[0];
 }
 
 $metas->servicios = get_post_meta($post->ID , 'servicios_negocio')[0];  
