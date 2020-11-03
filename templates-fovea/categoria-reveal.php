@@ -34,7 +34,7 @@ if( have_posts() ){
                     $tags_busqueda = explode(',', $_GET["tags"]);
                     
                     for($i = 0; $i < count($tags); $i++ ) { 
-                        if(in_array($tags[0]->slug, $tags_busqueda)){
+                        if(in_array($tags[$i]->slug, $tags_busqueda)){
                              $busqueda_item = 1;
                         }
                     }
