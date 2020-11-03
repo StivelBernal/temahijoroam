@@ -15,7 +15,9 @@ if( have_posts() ){
         $busqueda_item = 0;
 
         if(isset($_GET["busqueda"])){
+     
             $busqueda = explode(' ', $_GET["busqueda"]);
+     
             $titulo = get_the_title($post->ID);
             
             for($i = 0; $i < count($busqueda); $i++){
@@ -25,8 +27,12 @@ if( have_posts() ){
                 };
 
             }
+     
             if(isset($_GET["tags"])){
+     
                 $tags = get_the_terms( $post->ID , 'post_tag' );
+                var_dump($tags);
+                
                 if($tags){
                     
                     $tags_busqueda = explode(',', $_GET["tags"]);
@@ -38,6 +44,7 @@ if( have_posts() ){
                     }
                    
                 }
+     
             }
            
         }
@@ -45,7 +52,8 @@ if( have_posts() ){
         
 
         ?>
-        <?php if( (isset($_GET["busqueda"]) && $busqueda_item === 1) || !isset($_GET["busqueda"]) ){ ?>
+     
+       <?php if( (isset($_GET["busqueda"]) && $busqueda_item === 1) || !isset($_GET["busqueda"]) ){ ?>
 
 
        <div class="entry clearfix s-field hover-cat-1">
