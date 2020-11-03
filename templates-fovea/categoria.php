@@ -31,14 +31,14 @@ if( have_posts() ){
             if(isset($_GET["tags"])){
      
                 $tags = get_the_terms( $post->ID , 'post_tag' );
-                var_dump($tags);
                 
                 if($tags){
                     
                     $tags_busqueda = explode(',', $_GET["tags"]);
                     
                     for($i = 0; $i < count($tags); $i++ ) { 
-                        if(in_array($tags[0]->slug, $tags_busqueda)){
+                        
+                        if(in_array($tags[$i]->slug, $tags_busqueda)){
                              $busqueda_item = 1;
                         }
                     }
