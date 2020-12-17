@@ -38,7 +38,7 @@ if( have_posts() ){
             }
             
             if(isset($_GET["tags"]) && $_GET["tags"] !== ''){
-                echo 'sdfs0';
+                
                 $tags = get_the_terms( $post->ID , 'post_tag' );
             
                 if($tags){
