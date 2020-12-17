@@ -15,9 +15,30 @@ if( have_posts() ){
 
         if(isset($_GET["busqueda"])){
 
-            $busqueda = $_GET["busqueda"].' '.$_GET["tags"];
+            $busqueda = [];
+            $busqueda = explode(' ', $_GET["busqueda"] );
             
-            $busqueda_item = 1;
+            if(isset($_GET["tags"]) && $_GET["tags"] !== ''){
+                
+                $tags_busqueda = explode(',', $_GET["tags"]);
+
+                array_merge($busqueda, $tags_busqueda);
+
+                $tags = get_the_terms( $post->ID , 'post_tag' );
+            
+                if($tags){
+                                        
+                    $busqueda_item = 0;
+                    
+                    for($i = 0; $i < count($tags); $i++ ) { 
+                        if(in_array($tags[$i]->slug, $tags_busqueda)){
+                            $busqueda_item = 1;
+                            $i = count($tags);
+                        }
+                    }
+                   
+                }
+            }
 
             $post_src = $post->post_title.' '.$post->post_content.' '.$post->post_excerpt;
 
@@ -30,25 +51,7 @@ if( have_posts() ){
 
             }
 
-            if(isset($_GET["tags"]) && $_GET["tags"] !== ''){
-            
-                $tags = get_the_terms( $post->ID , 'post_tag' );
-            
-                if($tags){
-                    
-                    $tags_busqueda = explode(',', $_GET["tags"]);
-                    
-                    $busqueda_item = 0;
-                    
-                    for($i = 0; $i < count($tags); $i++ ) { 
-                        if(in_array($tags[$i]->slug, $tags_busqueda)){
-                            $busqueda_item = 1;
-                            $i = count($tags);
-                        }
-                    }
-                   
-                }
-            }
+          
            
         }
 
