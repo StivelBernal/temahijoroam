@@ -4,7 +4,6 @@
         <?php //echo do_shortcode( '[serlib_buscador_home_input] '); ?>
         <div class=" row-wrap">
 
-ASDAsdasdasdas
 <?php
 
 if( have_posts() ){
@@ -59,7 +58,7 @@ if( have_posts() ){
 
         ?>
      
-       <?php if( (isset($_GET["busqueda"]) && $busqueda_item === 1) || !isset($_GET["busqueda"]) ){ ?>
+       <?php if( (isset($_GET["busqueda"]) && $busqueda_item === 0) || !isset($_GET["busqueda"]) ){ ?>
 
 
        <div class="entry clearfix s-field hover-cat-1">

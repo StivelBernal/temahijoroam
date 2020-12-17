@@ -24,8 +24,6 @@ if( have_posts() ){
 
             $post_src = $post->post_title.' '.$post->post_content.' '.$post->post_excerpt;
             
-
-            var_dump($busqueda, '1'); 
             for($i = 0; $i < count($busqueda); $i++){
 
                 
@@ -55,8 +53,6 @@ if( have_posts() ){
             }
            
         }
-        echo $busqueda_item;
-
 
         ?>
         <?php if( (isset($_GET["busqueda"]) && $busqueda_item === 1) || !isset($_GET["busqueda"]) ){ ?>
