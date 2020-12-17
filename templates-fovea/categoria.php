@@ -34,8 +34,6 @@ if( have_posts() ){
                 $post_src .= ' '.$value->name;
             }
 
-            var_dump($post_src);
-            
             for($i = 0; $i < count($busqueda); $i++){
 
                 if(strripos($post_src, $busqueda[$i])){
