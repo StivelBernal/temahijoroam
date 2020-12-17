@@ -31,7 +31,7 @@
 
                         for($i = 0; $i < count($busqueda); $i++){
 
-                            if(stripos($post_src, $busqueda[$i])){
+                            if(strripos($post_src, $busqueda[$i])){
                                 $busqueda_item = 1;
                                 $i = count($busqueda);
                             };
