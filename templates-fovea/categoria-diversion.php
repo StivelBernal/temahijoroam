@@ -28,7 +28,7 @@ if( have_posts() ){
             }
 
             $post_src = $post->post_title.' '.$post->post_content.' '.$post->post_excerpt;
-
+            
             for($i = 0; $i < count($busqueda); $i++){
 
                 if(strripos($post_src, $busqueda[$i])){
@@ -44,13 +44,19 @@ if( have_posts() ){
             
                 if($tags){
                                         
-                    $busqueda_item = 0;
+                    $busqueda_item2 = 0;
                     
                     for($i = 0; $i < count($tags); $i++ ) { 
                         if(in_array($tags[$i]->slug, $tags_busqueda)){
-                            $busqueda_item = 1;
+                            $busqueda_item2 = 1;
                             $i = count($tags);
                         }
+                    }
+
+                    if( $_GET["busqueda"] !== '' && $busqueda_item === 1 && $busqueda_item2 === 1 ){
+                        $busqueda_item = 1;
+                    }else{
+                        $busqueda_item = 0;
                     }
                    
                 }
@@ -61,6 +67,7 @@ if( have_posts() ){
           
            
         }
+
 
 
 

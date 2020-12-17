@@ -18,24 +18,24 @@
 
                         $busqueda = [];
                         $busqueda = explode(' ', $_GET["busqueda"] );
-
+            
                         if(isset($_GET["tags"]) && $_GET["tags"] !== ''){
-
+            
                             $tags_busqueda = explode(',', $_GET["tags"]);
-
+            
                             array_merge($busqueda, $tags_busqueda);
-
+            
                         }
-
+            
                         $post_src = $post->post_title.' '.$post->post_content.' '.$post->post_excerpt;
-
+                        
                         for($i = 0; $i < count($busqueda); $i++){
-
+            
                             if(strripos($post_src, $busqueda[$i])){
                                 $busqueda_item = 1;
                                 $i = count($busqueda);
                             };
-
+            
                         }
                         
                         if(isset($_GET["tags"]) && $_GET["tags"] !== ''){
@@ -44,23 +44,30 @@
                         
                             if($tags){
                                                     
-                                $busqueda_item = 0;
+                                $busqueda_item2 = 0;
                                 
                                 for($i = 0; $i < count($tags); $i++ ) { 
                                     if(in_array($tags[$i]->slug, $tags_busqueda)){
-                                        $busqueda_item = 1;
+                                        $busqueda_item2 = 1;
                                         $i = count($tags);
                                     }
                                 }
-                            
+            
+                                if( $_GET["busqueda"] !== '' && $busqueda_item === 1 && $busqueda_item2 === 1 ){
+                                    $busqueda_item = 1;
+                                }else{
+                                    $busqueda_item = 0;
+                                }
+                               
                             }
                         }
-
+            
                         
-
-                    
-                    
+            
+                      
+                       
                     }
+            
 
 
 
