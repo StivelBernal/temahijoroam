@@ -17,13 +17,28 @@ if( have_posts() ){
 
             $busqueda = [];
             $busqueda = explode(' ', $_GET["busqueda"] );
-            
+
             if(isset($_GET["tags"]) && $_GET["tags"] !== ''){
-                
+
                 $tags_busqueda = explode(',', $_GET["tags"]);
 
                 array_merge($busqueda, $tags_busqueda);
 
+            }
+
+            $post_src = $post->post_title.' '.$post->post_content.' '.$post->post_excerpt;
+
+            for($i = 0; $i < count($busqueda); $i++){
+
+                if(stripos($post_src, $busqueda[$i])){
+                    $busqueda_item = 1;
+                    $i = count($busqueda);
+                };
+
+            }
+            
+            if(isset($_GET["tags"]) && $_GET["tags"] !== ''){
+                
                 $tags = get_the_terms( $post->ID , 'post_tag' );
             
                 if($tags){
@@ -40,16 +55,7 @@ if( have_posts() ){
                 }
             }
 
-            $post_src = $post->post_title.' '.$post->post_content.' '.$post->post_excerpt;
-
-            for($i = 0; $i < count($busqueda); $i++){
-
-                if(stripos($post_src, $busqueda[$i])){
-                    $busqueda_item = 1;
-                    $i = count($busqueda);
-                };
-
-            }
+            
 
           
            
