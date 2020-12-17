@@ -29,11 +29,9 @@ if( have_posts() ){
             $tipos_entradas = get_the_terms( $post->ID , 'tipos_entradas' );
 
             $post_src = $post->post_title.' '.$post->post_content.' '.$post->post_excerpt;
-            
-            var_dump($tipos_entradas);
 
             foreach ($tipos_entradas as $key => $value) {
-                $post_src .= ' '.$value->name;
+                $post_src .= ' '.$value->name.' '.$value->slug;
             }
 
             for($i = 0; $i < count($busqueda); $i++){
