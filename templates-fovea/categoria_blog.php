@@ -14,30 +14,54 @@
 
                     $busqueda_item = 0;
 
-                    if (isset($_GET["busqueda"])) {
-                        $busqueda = explode(' ', $_GET["busqueda"]);
-                        $titulo = get_the_title($post->ID);
+                    if(isset($_GET["busqueda"])){
 
-                        for ($i = 0; $i < count($busqueda); $i++) {
+                        $busqueda = [];
+                        $busqueda = explode(' ', $_GET["busqueda"] );
 
-                            if (stripos($titulo, $busqueda[$i])) {
-                                $busqueda_item = 1;
-                            };
+                        if(isset($_GET["tags"]) && $_GET["tags"] !== ''){
+
+                            $tags_busqueda = explode(',', $_GET["tags"]);
+
+                            array_merge($busqueda, $tags_busqueda);
+
                         }
-                        if (isset($_GET["tags"])) {
-                            $tags = get_the_terms($post->ID, 'post_tag');
-                            if ($tags) {
 
-                                $tags_busqueda = explode(',', $_GET["tags"]);
+                        $post_src = $post->post_title.' '.$post->post_content.' '.$post->post_excerpt;
 
-                                for ($i = 0; $i < count($tags); $i++) {
-                                    if (in_array($tags[$i]->slug, $tags_busqueda)) {
+                        for($i = 0; $i < count($busqueda); $i++){
+
+                            if(stripos($post_src, $busqueda[$i])){
+                                $busqueda_item = 1;
+                                $i = count($busqueda);
+                            };
+
+                        }
+                        
+                        if(isset($_GET["tags"]) && $_GET["tags"] !== ''){
+                            
+                            $tags = get_the_terms( $post->ID , 'post_tag' );
+                        
+                            if($tags){
+                                                    
+                                $busqueda_item = 0;
+                                
+                                for($i = 0; $i < count($tags); $i++ ) { 
+                                    if(in_array($tags[$i]->slug, $tags_busqueda)){
                                         $busqueda_item = 1;
+                                        $i = count($tags);
                                     }
                                 }
+                            
                             }
                         }
+
+                        
+
+                    
+                    
                     }
+
 
 
 
