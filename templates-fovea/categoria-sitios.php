@@ -21,6 +21,9 @@ if( have_posts() ){
             
             $busqueda_item = 1;
 
+            var_dump($busqueda, '2'); 
+
+
             $post_src = $post->post_title.' '.$post->post_content.' '.$post->post_excerpt;
             
             for($i = 0; $i < count($busqueda); $i++){
