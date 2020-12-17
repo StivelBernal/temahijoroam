@@ -30,6 +30,8 @@ if( have_posts() ){
 
             $post_src = $post->post_title.' '.$post->post_content.' '.$post->post_excerpt;
             
+            var_dump($tipos_entradas);
+
             foreach ($tipos_entradas as $key => $value) {
                 $post_src .= ' '.$value->name;
             }
