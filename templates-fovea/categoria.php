@@ -21,8 +21,6 @@ if( have_posts() ){
 
             $post_src = $post->post_title.' '.$post->post_content.' '.$post->post_excerpt;
 
-            var_dump($post_src, $busqueda);
-            
             for($i = 0; $i < count($busqueda); $i++){
 
                 if(stripos($post_src, $busqueda[$i])){
@@ -53,9 +51,6 @@ if( have_posts() ){
             }
            
         }
-
-        var_dump($busqueda_item);
-        echo 'sdfsdf';
 
         ?>
      
