@@ -52,6 +52,9 @@ if( have_posts() ){
            
         }
 
+        echo $busqueda_item;
+
+
         
 
         ?>

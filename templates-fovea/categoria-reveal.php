@@ -53,6 +53,8 @@ if( have_posts() ){
             }
            
         }
+        echo $busqueda_item;
+
 
         ?>
         <?php if( (isset($_GET["busqueda"]) && $busqueda_item === 1) || !isset($_GET["busqueda"]) ){ ?>

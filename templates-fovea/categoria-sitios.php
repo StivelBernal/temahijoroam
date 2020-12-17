@@ -51,41 +51,9 @@ if( have_posts() ){
                 }
             }
            
-        }if(isset($_GET["busqueda"])){
-            
-            $busqueda = $_GET["busqueda"].' '.$_GET["tags"];
-            
-            // $titulo = get_the_title($post->ID);
-
-            $results = searchAll($busqueda);
-
-            var_dump($results);
-
-            $busqueda_item = 1;
-
-            // for($i = 0; $i < count($busqueda); $i++){
-                
-            //     if(stripos($titulo, $busqueda[$i])){
-            //         $busqueda_item = 1;
-            //     };
- 
-            // }
-            // if(isset($_GET["tags"])){
-            //     $tags = get_the_terms( $post->ID , 'post_tag' );
-            //     if($tags){
-                    
-            //         $tags_busqueda = explode(',', $_GET["tags"]);
-                    
-            //         for($i = 0; $i < count($tags); $i++ ) { 
-            //             if(in_array($tags[$i]->slug, $tags_busqueda)){
-            //                  $busqueda_item = 1;
-            //             }
-            //         }
-                   
-            //     }
-            // }
-           
         }
+        echo $busqueda_item;
+
 
         ?>
         <?php if( (isset($_GET["busqueda"]) && $busqueda_item === 1) || !isset($_GET["busqueda"]) ){ ?>
