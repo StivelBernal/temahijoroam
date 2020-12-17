@@ -43,13 +43,19 @@ if( have_posts() ){
             
                 if($tags){
                                         
-                    $busqueda_item = 0;
+                    $busqueda_item2 = 0;
                     
                     for($i = 0; $i < count($tags); $i++ ) { 
                         if(in_array($tags[$i]->slug, $tags_busqueda)){
-                            $busqueda_item = 1;
+                            $busqueda_item2 = 1;
                             $i = count($tags);
                         }
+                    }
+
+                    if( $_GET["busqueda"] !== '' && $busqueda_item === 1 && $busqueda_item2 === 1 ){
+                        $busqueda_item = 1;
+                    }else{
+                        $busqueda_item = 0;
                     }
                    
                 }
