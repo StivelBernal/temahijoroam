@@ -23,7 +23,6 @@ if( have_posts() ){
             
             for($i = 0; $i < count($busqueda); $i++){
 
-                
                 if(stripos($post_src, $busqueda[$i])){
                     $busqueda_item = 1;
                 };
@@ -51,10 +50,8 @@ if( have_posts() ){
            
         }
 
-        echo $busqueda_item;
-
-
-        
+        var_dump($busqueda_item);
+        echo 'sdfsdf';
 
         ?>
      
