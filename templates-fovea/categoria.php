@@ -25,6 +25,7 @@ if( have_posts() ){
 
                 if(stripos($post_src, $busqueda[$i])){
                     $busqueda_item = 1;
+                    $i = count($busqueda);
                 };
 
             }
@@ -42,6 +43,7 @@ if( have_posts() ){
                     for($i = 0; $i < count($tags); $i++ ) { 
                         if(in_array($tags[$i]->slug, $tags_busqueda)){
                             $busqueda_item = 1;
+                            $i = count($tags);
                         }
                     }
                    
@@ -55,7 +57,7 @@ if( have_posts() ){
 
         ?>
      
-       <?php if( (isset($_GET["busqueda"]) && $busqueda_item === 0) || !isset($_GET["busqueda"]) ){ ?>
+       <?php if( (isset($_GET["busqueda"]) && $busqueda_item === 1) || !isset($_GET["busqueda"]) ){ ?>
 
 
        <div class="entry clearfix s-field hover-cat-1">
