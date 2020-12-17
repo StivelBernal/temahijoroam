@@ -27,7 +27,7 @@ if( have_posts() ){
             }
 
             $post_src = $post->post_title.' '.$post->post_content.' '.$post->post_excerpt;
-
+            
             for($i = 0; $i < count($busqueda); $i++){
 
                 if(strripos($post_src, $busqueda[$i])){
@@ -38,7 +38,7 @@ if( have_posts() ){
             }
             
             if(isset($_GET["tags"]) && $_GET["tags"] !== ''){
-                
+                echo 'sdfs0';
                 $tags = get_the_terms( $post->ID , 'post_tag' );
             
                 if($tags){
